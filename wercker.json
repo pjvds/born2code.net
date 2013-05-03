@@ -5,7 +5,7 @@
             "sudo gem install jekyll",
             "sudo gem install redcarpet",
             "sudo gem install albino"],
-        "generate site" : "jekyll"
+        "generate site" : "jekyll",
     },
     "deploy" : [
         "cd $HOME",

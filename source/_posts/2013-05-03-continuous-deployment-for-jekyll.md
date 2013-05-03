@@ -34,7 +34,7 @@ will only send a short hello message (a string in the form "client_name
 HI"). It listens for a response (in this case, just the string "OK").
 
 ØMQ provides the EPGM transport, Encapsulated Pragmatic General
-Multicast, which is UDP-encapsulated PGM. (PGM is standardised in 
+Multicast, which is UDP-encapsulated PGM. (PGM is standardised in
 [RFC 3208](https://www.rfc-editor.org/rfc/rfc3208.txt) We'll use this in
 examples; if you find the EPGM protocol isn't supported on your machine,
 you might try specifying the PGM transport instead. Note either transport
@@ -423,13 +423,13 @@ These sessions look something like:
 
 ```bash
 $ ./client -i wlan0
-[+] client0: starting 
-[+] client0: searching for server advertisements 
-[+] client0: found advertisement 
+[+] client0: starting
+[+] client0: searching for server advertisements
+[+] client0: found advertisement
 [+] client0: found server at tcp://192.168.1.2:50053
-[+] client0: connecting to server 
+[+] client0: connecting to server
 [+] client0: sending message to server: client0 HI
-[+] client0: success 
+[+] client0: success
 ```
 
 ### Conclusion
