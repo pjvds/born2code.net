@@ -3,6 +3,6 @@
     "custom steps" : {
         "generate site" : [
             "jekyll"
-        ],
-    },
+        ]
+    }
 }
