@@ -1,7 +1,9 @@
 {
     "lang": "ruby",
     "custom steps" : {
-        "install jekyll" : "sudo gem install jekyll",
+        "install executable gems" : [
+            "sudo gem install jekyll",
+            "sudo gem install redcarpet"]
         "generate site" : "jekyll"
     }
 }
