@@ -1,13 +1,14 @@
 {
     "lang": "ruby",
-    "custom steps" : {
-        "install executable gems" : [
+    "custom steps": {
+        "install executable gems": [
             "sudo gem install jekyll",
             "sudo gem install redcarpet",
-            "sudo gem install albino"],
-        "generate site" : "jekyll",
+            "sudo gem install albino"
+        ],
+        "generate site": "jekyll"
     },
-    "deploy" : [
+    "deploy": [
         "cd $HOME",
         "wget -O- -q http://s3tools.org/repo/deb-all/stable/s3tools.key | sudo apt-key add -",
         "sudo wget -O/etc/apt/sources.list.d/s3tools.list http://s3tools.org/repo/deb-all/stable/s3tools.list",
