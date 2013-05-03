@@ -3,7 +3,7 @@
     "custom steps" : {
         "install executable gems" : [
             "sudo gem install jekyll",
-            "sudo gem install redcarpet"]
+            "sudo gem install redcarpet"],
         "generate site" : "jekyll"
     }
 }
