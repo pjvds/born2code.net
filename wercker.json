@@ -1,0 +1,8 @@
+{
+    "lang": "ruby",
+    "custom steps" : {
+        "generate site" : [
+            "jekyll"
+        ],
+    },
+}
