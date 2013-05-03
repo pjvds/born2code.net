@@ -1,8 +1,7 @@
 {
     "lang": "ruby",
     "custom steps" : {
-        "generate site" : [
-            "jekyll"
-        ]
+        "install jekyll" : "sudo gem install jekyll",
+        "generate site" : "jekyll"
     }
 }
