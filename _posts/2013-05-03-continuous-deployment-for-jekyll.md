@@ -10,7 +10,7 @@ keywords: [wercker, jekyll, continuous deployment]
 
 # Put your Jekyll deploy on steroids with Wercker
 
-One thing that we all noticed is that static site generators are hot. I saw many of bloggers moving to Jekyll, Hyde or Octopress and have spoken to web developers that succesfully used one of these generators for simple websites.  When you have been browsing the blogosphere, you have noticed that many bloggers or moving from towards static site generator. Especially Jekyll is extremely populair. A simple [search at Google](https://www.google.nl/search?q=moving+to+jekyll) for with the phrase "moving to jekyll" gives around the 2 million results.
+One thing that we all noticed is that static site generators are definite. I saw many of bloggers moving to Jekyll, Hyde or Octopress and have spoken to web developers that succesfully used one of these generators for simple websites.  When you have been browsing the blogosphere, you have noticed that many bloggers or moving from towards static site generator. Especially Jekyll is extremely populair. A simple [search at Google](https://www.google.nl/search?q=moving+to+jekyll) for with the phrase "moving to jekyll" gives around the 2 million results.
 
 ## Requirements
 
@@ -20,15 +20,15 @@ One thing that we all noticed is that static site generators are hot. I saw many
 
 In order to serve your site from Amazon S3 you need to first create a bucket to hold it. Using the [S3 web console](https://console.aws.amazon.com/s3/home) you can create a new bucket by clicking the big blue button called `Create Bucket`. A popup will appear where you can enter your bucket name. I entered `born2code.net`, since that is the domain I will host my blog on.
 
-![image](/assets/jekyll-deploy-to-s3/screenshots/create-bucket-name.png)
+![image](/assets/continuous-deployment-for-jekyll/create-bucket-name.png)
 
 ## Enable website hosting
 
 The bucket is now created and we need to enable website hosting in it. Click on the
 
-![image](/assets/jekyll-deploy-to-s3/screenshots/create-bucket-name.png)
+![image](/assets/continuous-deployment-for-jekyll/create-bucket-name.png)
 
 ## Access credentials
 
-![image](/assets/jekyll-deploy-to-s3/screenshots/generate-key.png)
+![image](/assets/continuous-deployment-for-jekyll/generate-key.png)
 
