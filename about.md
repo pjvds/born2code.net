@@ -11,7 +11,7 @@ sitemap:
 
 Hi, my name is __Pieter Joost van de Sande__ and I’m a __software engineer__ for almost a decade.
 
-I'm currently employed by [wercker](https://wercker.com), a start up based in Amsterdam. We are building an integral software delivery platform in the cloud.
+I'm currently employed by [wercker](https://wercker.com), a startup based in Amsterdam. We are building an integral software delivery platform in the cloud.
 Previously I was a thought leader at [atos](http://atos.net/), one of worlds largest IT service companies in the world. This is where I received the Atos TRP award which made me a [distinguished member of technical staff](http://en.wikipedia.org/wiki/Member_of_technical_staff).
 
 Next to the employement I play an active part in the software development community. I've presented at conferences like Microsoft TechDays, Software Development Conference and NDC. Beside speaking I'm also a frequent visitor of smaller meetups. I'm a board member at [Devnology](http://devnology.nl), where I help to organize meeting and run a [software development podcast](http://devnology.nl/en/podcast). My active role in the community is recognized by Microsoft who awarded me with the exclusive [Microsoft MVP](http://mvp.microsoft.com/en-US/default.aspx) award.
