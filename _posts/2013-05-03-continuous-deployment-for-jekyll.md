@@ -1,14 +1,12 @@
 ---
 layout: post
 title: "Put your Jekyll deploy on steriods with Wercker"
-date: 2013-02-26 22:00
+date: 2013-05-03 22:00
 comments: true
-categories: [wercker, jekyll]
+categories: [programming]
 tag: [wercker, jekyll, continuous deployment]
 keywords: [wercker, jekyll, continuous deployment]
 ---
-
-# Put your Jekyll deploy on steroids with Wercker
 
 One thing that we all noticed is that static site generators are definite. I saw many of bloggers moving to Jekyll, Hyde or Octopress and have spoken to web developers that succesfully used one of these generators for simple websites.  When you have been browsing the blogosphere, you have noticed that many bloggers or moving from towards static site generator. Especially Jekyll is extremely populair. A simple [search at Google](https://www.google.nl/search?q=moving+to+jekyll) for with the phrase "moving to jekyll" gives around the 2 million results.
 
