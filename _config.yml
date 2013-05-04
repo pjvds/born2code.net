@@ -7,5 +7,5 @@ rdiscount:
   extensions: [smart]
 permalink: /blog/:year/:month/:day/:title
 pygments: true
-exclude: ["config.json", "README.md", "scss", "Termfile"]
-paginate: 5
+exclude: ["_config.json", "README.md", "scss", "wercker.json"]
+paginate: 10

@@ -6,28 +6,27 @@ page-class: page-about
 sitemap:
   priority: 0.7
   changefreq: weekly
-  lastmod: 2013-03-26T18:55:00-04:00
+  lastmod: 2013-05-06T18:55:00-04:00
 ---
 
-Hi, my name is __David Ensinger__ and I’m a __Front End Developer__ with equal parts interest in design, development, and writing.
+Hi, my name is __Pieter Joost van de Sande__ and I’m a __software engineer__ for almost a decade.
 
-I develop websites that are well designed, useable, and adhere to modern standards and accessibility requirements. I’m also no slouch at writing documentation, leading training, and providing ongoing support. My clients and co-workers will vouch that I play well with others too.
+I'm currently employed by [wercker](https://wercker.com), a start up based in Amsterdam. We are building an integral software delivery platform in the cloud.
+Previously I was a thought leader at [atos](http://atos.net/), one of worlds largest IT service companies in the world. Here I received the Atos TRP award which made me a [distinguished member of technical staff](http://en.wikipedia.org/wiki/Member_of_technical_staff).
 
-I’m currently employed by [CITYTECH, Inc](http://www.citytechinc.com/), a global IT consultancy. Previously I worked for [The Ohio State University Libraries](http://library.osu.edu/). In a past life I was a Peace Corps Volunteer in the Republic of Moldova. I graduated from the Ohio State University’s Fisher College of Business with a B.S. in Business Administration with a specialization in Finance.
+Next to the employement I play an active part in the software development community. I've presented at conferences like Microsoft TechDays, Software Development Conference and NDC. Beside speaking I'm also a frequent visitor of smaller meetups. I'm a board member at [Devnology](http://devnology.nl), where I help to organize meeting and run a software development podcast. My active role in the community is recognized by Microsoft who awarded me with a Microsoft MVP award in 2007, 2008, 2009, 2011 and 2012.
 
-I am interested in the liberal arts, finance and investing, and staying physically fit and eating well. I also really enjoy living in Columbus, Ohio.
-
-For my personal web presence, see the [Republic of the Spirit](http://www.republicofthespirit.com/).
+I clear my head and recharge my batteries with running. I prefer the trails and when the weater allows it I run barefoot.
 
 ## Contact
 
-If you have any questions, comments, or would just like to say hello, please don't hesitate to [drop me a line](mailto:hello@davidensinger.com). I’ll be sure to respond in a timely manner!
+If you have any questions, comments, or would just like to say hello, please don't hesitate to [drop me a tweet](http://twitter.com/pjvds).
 
 ## Colophon
 
-This website was made on a [MacBook Air](http://www.apple.com/macbookair/), designed in browser with [Chrome](http://www.google.com/chrome/), and marked up in [Haml](http://haml.info/) and [Sass](http://sass-lang.com/) in [Sublime Text 2](http://www.sublimetext.com/). Type is set in [Open Sans](http://www.google.com/webfonts/specimen/Open+Sans), which is served by [Google Web Fonts](http://www.google.com/webfonts). Posts are composed in [Markdown](http://daringfireball.net/projects/markdown/) and syntax is highlighted with [Pygments](http://pygments.org/).
+The main reason this website looks awesome is [David Ensinger](http://davidensinger.com/). I forked his website and used it as a base. I do this mainly on a [MacBook Pro](http://www.apple.com/macbook-pro/) and use [Sublime Text 2](http://www.sublimetext.com/) as my primarely editor. Type is set in [Open Sans](http://www.google.com/webfonts/specimen/Open+Sans), which is served by [Google Web Fonts](http://www.google.com/webfonts). Posts are composed in [Markdown](http://daringfireball.net/projects/markdown/) which I write in [Mou](http://mouapp.com) and syntax is highlighted with [Pygments](http://pygments.org/).
 
-The site is published with [Jekyll](http://jekyllrb.com/) and hosted on [GitHub Pages](http://pages.github.com/) ([view the code](https://github.com/davidensinger/davidensinger.github.com)), while the code was compiled and committed into version control by [iTerm2](http://www.iterm2.com/) and [Git](http://git-scm.com/), respectively. [Consular](https://github.com/achiu/consular) was used to automate development workflow setup.
+The site is published with [Jekyll](http://jekyllrb.com/) and hosted on [Amazone S3](http://aws.amazon.com/s3/). I use [wercker](https://wercker.com) to automate the deployment process. The code is hosted at [github](http://github.com) in the repository [pjvds/born2code](http://github.com/pjvds/born2code). You are free to fork or steel anything you find usefull.
 
 A number of supporting plugins and code snippets for Jekyll are used with the site:
 
@@ -41,8 +40,3 @@ A couple Sass mixins proved integral to the scaffolding of the site:
 
 - [Breakpoint mixin](http://css-tricks.com/media-queries-sass-3-2-and-codekit/) by [Chris Coyier](http://css-tricks.com/)
 - [Rem mixin](https://gist.github.com/webgefrickel/4530526) by [Steffen Becker](http://webgefrickel.de/)
-
-In addition, I consulted the following resources for both inspiration and best practices:
-
-- [HTML5 Boilerplate](http://html5boilerplate.com/)
-- [Microformats Wiki](http://microformats.org/wiki/)
