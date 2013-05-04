@@ -9,3 +9,4 @@ permalink: /blog/:year/:month/:day/:title
 pygments: true
 exclude: ["_config.json", "README.md", "scss", "wercker.json"]
 paginate: 10
+config.postassetsbase: http://pa.born2code.net/

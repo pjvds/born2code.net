@@ -20,15 +20,15 @@ One thing that we all noticed is that static site generators are definite. I saw
 
 In order to serve your site from Amazon S3 you need to first create a bucket to hold it. Using the [S3 web console](https://console.aws.amazon.com/s3/home) you can create a new bucket by clicking the big blue button called `Create Bucket`. A popup will appear where you can enter your bucket name. I entered `born2code.net`, since that is the domain I will host my blog on.
 
-![image](/assets/continuous-deployment-for-jekyll/create-bucket-name.png)
+![image]({{config.postassetsbase}}continuous-deployment-for-jekyll/create-bucket-name.png)
 
 ## Enable website hosting
 
 The bucket is now created and we need to enable website hosting in it. Click on the
 
-![image](/assets/continuous-deployment-for-jekyll/create-bucket-name.png)
+![image](http://pa.born2code.net/assets/posts/continuous-deployment-for-jekyll/create-bucket-name.png)
 
 ## Access credentials
 
-![image](/assets/continuous-deployment-for-jekyll/generate-key.png)
+![image](/assets/posts/continuous-deployment-for-jekyll/generate-key.png)
 
