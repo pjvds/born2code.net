@@ -22,6 +22,6 @@
         "echo \"access_key=$AWS_ACCESS_KEY_ID\" >> .s3cfg",
         "echo \"secret_key=$AWS_SECRET_ACCESS_KEY\" >> .s3cfg",
         "cd $WERCKER_ROOT/_site",
-        "s3cmd sync --acl-public --delete-removed ./ s3://born2code.net/"
+        "s3cmd sync --acl-public --delete-removed --verbose ./ $AWS_BUCKET_URL"
     ]
 }
