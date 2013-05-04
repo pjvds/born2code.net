@@ -12,11 +12,13 @@ sitemap:
 Hi, my name is __Pieter Joost van de Sande__ and I’m a __software engineer__ for almost a decade.
 
 I'm currently employed by [wercker](https://wercker.com), a start up based in Amsterdam. We are building an integral software delivery platform in the cloud.
-Previously I was a thought leader at [atos](http://atos.net/), one of worlds largest IT service companies in the world. Here I received the Atos TRP award which made me a [distinguished member of technical staff](http://en.wikipedia.org/wiki/Member_of_technical_staff).
+Previously I was a thought leader at [atos](http://atos.net/), one of worlds largest IT service companies in the world. This is where I received the Atos TRP award which made me a [distinguished member of technical staff](http://en.wikipedia.org/wiki/Member_of_technical_staff).
 
-Next to the employement I play an active part in the software development community. I've presented at conferences like Microsoft TechDays, Software Development Conference and NDC. Beside speaking I'm also a frequent visitor of smaller meetups. I'm a board member at [Devnology](http://devnology.nl), where I help to organize meeting and run a software development podcast. My active role in the community is recognized by Microsoft who awarded me with a Microsoft MVP award in 2007, 2008, 2009, 2011 and 2012.
+Next to the employement I play an active part in the software development community. I've presented at conferences like Microsoft TechDays, Software Development Conference and NDC. Beside speaking I'm also a frequent visitor of smaller meetups. I'm a board member at [Devnology](http://devnology.nl), where I help to organize meeting and run a [software development podcast](http://devnology.nl/en/podcast). My active role in the community is recognized by Microsoft who awarded me with the exclusive [Microsoft MVP](http://mvp.microsoft.com/en-US/default.aspx) award.
 
-I clear my head and recharge my batteries with running. I prefer the trails and when the weater allows it I run barefoot.
+As any good developer would I'm active in the open source community. I've contributed to various open source projects like, [ncqrs](http://github.com/ncqrs/ncqrs), [node-auth](https://github.com/ciaranj/node-oauth), [ssh-keygen](https://github.com/ericvicenti/ssh-keygen), [EventStore](https://github.com/joliver/EventStore) and [many more](https://github.com/pjvds).
+
+To clear my head and recharge my batteries I run. Preferebly on the trail and when the weater allows it [barefoot](http://barefootrunning.com/). Otherwise, I run in [Luna Sandals](https://www.lunasandals.com/).
 
 ## Contact
 
@@ -26,7 +28,7 @@ If you have any questions, comments, or would just like to say hello, please don
 
 The main reason this website looks awesome is [David Ensinger](http://davidensinger.com/). I forked his website and used it as a base. I do this mainly on a [MacBook Pro](http://www.apple.com/macbook-pro/) and use [Sublime Text 2](http://www.sublimetext.com/) as my primarely editor. Type is set in [Open Sans](http://www.google.com/webfonts/specimen/Open+Sans), which is served by [Google Web Fonts](http://www.google.com/webfonts). Posts are composed in [Markdown](http://daringfireball.net/projects/markdown/) which I write in [Mou](http://mouapp.com) and syntax is highlighted with [Pygments](http://pygments.org/).
 
-The site is published with [Jekyll](http://jekyllrb.com/) and hosted on [Amazone S3](http://aws.amazon.com/s3/). I use [wercker](https://wercker.com) to automate the deployment process. The code is hosted at [github](http://github.com) in the repository [pjvds/born2code](http://github.com/pjvds/born2code). You are free to fork or steel anything you find usefull.
+The site is published with [Jekyll](http://jekyllrb.com/) and hosted on [Amazone S3](http://aws.amazon.com/s3/). I use [wercker](https://wercker.com) to compile this website and automate the deployment process. The code is hosted at [github](http://github.com) in the repository [pjvds/born2code](http://github.com/pjvds/born2code). You are free to fork or steel anything you find usefull.
 
 A number of supporting plugins and code snippets for Jekyll are used with the site:
 
