@@ -9,6 +9,4 @@ permalink: /blog/:year/:month/:day/:title
 pygments: true
 exclude: ["_config.json", "README.md", "scss", "wercker.json"]
 paginate: 10
-assetbase: http://born2code.net/assets/posts
-assets:
-  baseurl: http://born2code.net/assets/posts
+content_assets_base: http://born2code.net/assets/posts/
