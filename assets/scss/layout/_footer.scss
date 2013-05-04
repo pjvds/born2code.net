@@ -1,0 +1,48 @@
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+.site-footer {
+  color: $footer-color;
+  text-shadow: 0 1px 1px rgba($text-color, 0.25);
+  @include breakpoint(smaller-than-small-desktop) {
+    text-align: center; } }
+
+.footer-icons {
+  float: right;
+  @include rem(margin-top, -0.4);
+  @include breakpoint(smaller-than-small-desktop) {
+    @include rem(margin, 0 0 1.5);
+    float: none; } }
+
+.footer-icon-link {
+  @include rem(margin-left, 1);
+  &:first-child {
+    margin: 0; } }
+
+.footer-icon-link,
+.link-rss {
+  &:link,
+  &:visited {
+    color: $link-footer-icon-color; }
+  &:hover {
+    color: $link-footer-icon-color-hover; }
+  &:focus,
+  &:active {
+    color: $link-footer-icon-color-focus; } }
+
+.icon-rss,
+.footer-icon {
+  font-weight: 400; }
+
+.footer-icon {
+  line-height: 0;
+  &:before {
+    @extend %gamma-font-size;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out; }
+  &:hover {
+    &:before {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+      transform: scale(1.5); } } }

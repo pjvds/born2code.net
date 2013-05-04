@@ -1,0 +1,20 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+
+.site-header {
+  @extend %clearfix; }
+
+.site-logo {
+  float: left;
+  @include rem(margin-right, 2); }
+
+.svg-logo {
+  @include rem(width, 6);
+  @include rem(height, 6);
+  -webkit-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  &:hover {
+  	-webkit-transform: scale(1.125) rotate(2deg);
+  	-ms-transform: scale(1.125) rotate(2deg);
+  	transform: scale(1.125) rotate(2deg); } }
