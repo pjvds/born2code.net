@@ -1,11 +1,11 @@
+safe: false
 name: born2code.net
 description: Yet Another Programming Blog
 url: http://born2code.net
-markdown: redcarpet2
-lsi: true
-source: source
+markdown: rdiscount
+rdiscount:
+  extensions: [smart]
 permalink: /blog/:year/:month/:day/:title
 pygments: true
-exclude: ["mkfile"]
-redcarpet:
-  extensions: ["fenced_code_blocks"]
+exclude: ["config.json", "README.md", "scss", "Termfile"]
+paginate: 5

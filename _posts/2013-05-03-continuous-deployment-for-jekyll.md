@@ -16,7 +16,6 @@ One thing that we all noticed is that static site generators are hot. I saw many
 
 * You have the [AWS Command Line Interface](http://aws.amazon.com/cli/) installed
 
-
 ## Create an S3 bucket
 
 In order to serve your site from Amazon S3 you need to first create a bucket to hold it. Using the [S3 web console](https://console.aws.amazon.com/s3/home) you can create a new bucket by clicking the big blue button called `Create Bucket`. A popup will appear where you can enter your bucket name. I entered `born2code.net`, since that is the domain I will host my blog on.

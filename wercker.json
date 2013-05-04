@@ -4,7 +4,8 @@
         "install executable gems": [
             "sudo gem install jekyll",
             "sudo gem install redcarpet",
-            "sudo gem install albino"
+            "sudo gem install albino",
+            "sudo gem install rdiscount"
         ],
         "generate site": "jekyll"
     },
