@@ -1,3 +1,5 @@
+require "jekyll-assets"
+
 module Jekyll
   # Makes the blog tag urls "pretty" instead of /tag.html its just /tag/
   # This allows me to keep a custom permalink setting for blog posts
