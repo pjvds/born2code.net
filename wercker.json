@@ -6,9 +6,13 @@
             "sudo gem install jekyll-assets",
             "sudo gem install redcarpet",
             "sudo gem install albino",
-            "sudo gem install rdiscount"
+            "sudo gem install rdiscount",
+            "sude gem install sass"
         ],
-        "generate site": "jekyll"
+        "generate site": [
+            "sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info",
+            "jekyll"
+        ]
     },
     "deploy": [
         "cd $HOME",
