@@ -19,11 +19,11 @@ Here is [the list](https://github.com/pjvds/node-oauth/commits/no-follow-option-
 	04eb6fa  Add test cases for 302 response status
 	6e215f9  Add failing test for 301 redirect for followRedirect client option
 
-Only the last two, `3458576` and `e16527`, contain whitespace fixes. So I want to start by reseting to `04eb6fa`.
+Only the last two, `3458576` and `e16527`, contain whitespace fixes. I want to split the work I did in both commits into two new commits. One containing the functional change and the other the whitespace change.
 
 ## Creating a backup
 
-Before I start messing around I create a new branch `backup`. In my case this isn't realy necesery because the changes are already pushed to github. But I'm not sure all the readers of this article have.
+Before I start messing around I create a new branch `backup`. In my case this isn't realy necesery because the changes are already pushed to github. But I'm not sure all the readers of this have.
 
 	git branch backup
 
