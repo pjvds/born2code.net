@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Put your Jekyll deploy on steriods with Wercker"
-date: 2013-05-03 22:00
 comments: true
 categories: [programming]
 tag: [wercker, jekyll, continuous deployment]

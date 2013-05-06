@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Code coverage wisdom"
-date: 2013-03-21 05:16
 categories: [programming]
 keywords: [tdd, code coverage, testing]
 ---
