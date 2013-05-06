@@ -6,9 +6,9 @@ categories: [programming]
 keywords: [git, rebase, commits, history]
 ---
 
-I have added a new feature to the [node auth module](https://github.com/ciaranj/node-oauth) to not follow redirects. Next to functional changes I also [removed](https://github.com/pjvds/node-oauth/commit/e16527e674d26733763028667b92e539126d691c) some trailing whitespaces. This to satisfy tools like [jshint](http://jshint.com).
+I have added a new feature to the [node auth module](https://github.com/ciaranj/node-oauth) to not follow redirects. Next to functional changes I also [removed](https://github.com/pjvds/node-oauth/commit/e16527e674d26733763028667b92e539126d691c) some trailing white spaces. This to satisfy tools like [jshint](http://jshint.com).
 
-Ciaran, the maintainer of the module, [tell me](https://github.com/ciaranj/node-oauth/pull/138#issuecomment-16996402) that he likes what I did but would like to see the functional- and whitespaces changes in separate commits. This means I need to split some commits in made. Spliting commits and rewriting git repository history is not something I do on a daily basis, and I guess there are more out there, so I decided to write down how I did it for future reference.
+Ciaran, the maintainer of the module, [tell me](https://github.com/ciaranj/node-oauth/pull/138#issuecomment-16996402) that he likes what I did but would like to see the functional- and white spaces changes in separate commits. This means I need to split some commits in made. Splitting commits and rewriting git repository history is not something I do on a daily basis, and I guess there are more out there, so I decided to write down how I did it for future reference.
 
 ## The commits
 
@@ -23,13 +23,13 @@ Only the last two, `3458576` and `e16527`, contain whitespace fixes. I want to s
 
 ## Creating a backup
 
-Before I start messing around I create a new branch `backup`. In my case this isn't realy necesery because the changes are already pushed to github. But I'm not sure all the readers of this have.
+Before I start messing around I create a new branch `backup`. In my case this isn't really necessary because the changes are already pushed to Github. But I'm not sure all the readers of this have.
 
 	git branch backup
 
 ## Rebase commits
 
-I use git rebase to rebase my two commits onto the HEAD. I specify `-i` to do this in interactive mode. Which gives me the oppertunity to stop after each commit and split the functional and whitespace work in multiple commits.
+I use git rebase to rebase my two commits onto the HEAD. I specify `-i` to do this in interactive mode. Which gives me the opportunity to stop after each commit and split the functional and whitespace work in multiple commits.
 
 	git rebase -i 04eb6fa
 	
@@ -64,7 +64,7 @@ Now I write the file and quit my editor VIM to start the rebase.
 
 ## Stopped at first commit
 
-Git reponse with the following message:
+Git response with the following message:
 	
 	stopped at e16527e... Add followRedirect client option to turn auto follow on or off
 	You can amend the commit now, with
@@ -129,9 +129,9 @@ Staging a hunk has the following options:
 	e - manually edit the current hunk
 	? - print help
 	
-I choose `y` to stage this hunk. The next hunk appears, it is also a functional change. I choose `y` again and the next hunk appears. I continue this process by choosing `y` to stage and `n` to not stage the hunks untill there is no hunk left.
+I choose `y` to stage this hunk. The next hunk appears, it is also a functional change. I choose `y` again and the next hunk appears. I continue this process by choosing `y` to stage and `n` to not stage the hunks until there is no hunk left.
 
-__tip__: Enabling git colors will help you to understand the diff output better. To enable git colors globally run: `git config --global color.ui auto`.
+__tip__: Enabling git colours will help you to understand the diff output better. To enable git colours globally run: `git config --global color.ui auto`.
 
 ## Commit it
 
@@ -141,7 +141,7 @@ Now parts of the `lib/oauth.js` are staged. I simply commit this with:
 	
 ## Add the whitespace changes
 
-All functional changes are staged and comitted. Now I can simply stage the full `lib/oauth.js` file and commit that as well.
+All functional changes are staged and committed. Now I can simply stage the full `lib/oauth.js` file and commit that as well.
 
 	git add lib/oauth.js
 	git commit -m 'Remove trailing white spaces'
@@ -161,7 +161,7 @@ I have split commit `e16527e` in two new commits. Now I continue the rebase whic
 	
 		git rebase --continue
 		
-Once again I reset the HEAD and the index whitout resetting the actual content of the files.
+Once again I reset the HEAD and the index without resetting the actual content of the files.
 
 	git reset HEAD^ --mixed
 	
@@ -193,7 +193,7 @@ After accepting the first hunk I discover that there are no hunks left. Which me
 	         'we get the expected result string': function (oa) {
 	Stage this hunk [y,n,q,a,d,/,e,?]? y # this is a functional change
 	
-I commit with a slightly different message than the original. I start with _add_ instead of _adds_ to make my commit message consistant":
+I commit with a slightly different message than the original. I start with _add_ instead of _adds_ to make my commit message consistent":
 
 	git commit -m 'Add test to proof default value for followRedirects is true'
 	
@@ -209,7 +209,7 @@ The rebase will finish because there are not commits left.
 	
 ## Push with force
 
-I now want to push my changes to github to update my pull request.
+I now want to push my changes to Github to update my pull request.
 
 	git push origin no-follow-redirect
 
@@ -223,7 +223,7 @@ Git rejects my commit because my HEAD doesn't match with the HEAD of the remote.
 	hint: before pushing again.
 	hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
-This may look scary and definitily is when others are working on my branch as well. But in this case I want to push anyway and discard the _wrong_ history of the remote. I now push with the `-f` force option.
+This may look scary and definitely is when others are working on my branch as well. But in this case I want to push anyway and discard the _wrong_ history of the remote. I now push with the `-f` force option.
 
 	git push origin no-follow-redirect -f
 	
