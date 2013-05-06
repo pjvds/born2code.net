@@ -1,7 +1,6 @@
 ---
 layout: post
 title: "Split multiple commits in git"
-date: 2013-05-06 09:48
 categories: [programming]
 keywords: [git, rebase, commits, history]
 ---
@@ -236,3 +235,7 @@ And I am done!
 	Total 12 (delta 8), reused 0 (delta 0)
 	To git@github.com:pjvds/node-oauth.git
 	 + 3458576...3584b43 no-follow-option -> no-follow-option (forced update)
+	 
+## Final pull request
+
+Here is the final pull request version that - hopefully - satisfies Carian: [Don't follow redirects opt-out](https://github.com/ciaranj/node-oauth/pull/138).
