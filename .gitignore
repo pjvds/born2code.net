@@ -1,6 +1,11 @@
+# Stuff that Jekyll generates
 _site
 _cache
 
-Gemfile.lock
-
+# SASS compilation cache
 .sass-cache
+
+# Do not check in the .bundle directory, or any of the files inside it.
+# Those files are specific to each particular machine, and are used to
+# persist installation options between runs of the bundle install command.
+.bundle
