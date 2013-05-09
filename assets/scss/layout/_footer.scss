@@ -8,6 +8,10 @@
   @include breakpoint(smaller-than-small-desktop) {
     text-align: center; } }
 
+.site-footer a {
+  color: rgb(197, 221, 237)
+}
+
 .footer-icons {
   float: right;
   @include rem(margin-top, -0.4);
