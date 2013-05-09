@@ -8,7 +8,7 @@ build:
     - script:
         name: generate site
         code: |
-            if [ "$JEKYLL_INCLUDE_DRAFTS" = "true" ] ;
+            if [[ "$JEKYLL_INCLUDE_DRAFTS" = "true" ]] ;
             then
                 bundle exec jekyll build --drafts
             else
