@@ -31,10 +31,10 @@ Before I start messing around I create a new branch `backup`. In my case this is
 I use git rebase to rebase my two commits onto the HEAD. I specify `-i` to do this in interactive mode. Which gives me the opportunity to stop after each commit and split the functional and whitespace work in multiple commits.
 
 	git rebase -i 04eb6fa
-	
+
 	pick e16527e Add followRedirect client option to turn auto follow on or off
 	pick 3458576 Adds test to proof default value for followRedirects is true
-	
+
 	# Rebase 04eb6fa..3458576 onto 04eb6fa
 	#
 	# Commands:
@@ -58,13 +58,13 @@ I change the status for both commits from `pick` to `edit`.
 
 	edit e16527e Add followRedirect client option to turn auto follow on or off
 	edit 3458576 Adds test to proof default value for followRedirects is true
-	
+
 Now I write the file and quit my editor VIM to start the rebase.
 
 ## Stopped at first commit
 
 Git response with the following message:
-	
+
 	stopped at e16527e... Add followRedirect client option to turn auto follow on or off
 	You can amend the commit now, with
 
@@ -79,11 +79,11 @@ When I execute `git log --pretty=format:'%h  %s' -n 3` I get the following:
 	e16527e  Add followRedirect client option to turn auto follow on or off
 	04eb6fa  Add test cases for 302 response status
 	6e215f9  Add failing test for 301 redirect for followRedirect client option
-	
+
 This shows that the HEAD and index are both at `e16527`. I now mixed reset that commit.
 
 	git reset HEAD^ --mixed
-	
+
 	Unstaged changes after reset:
 	M	lib/oauth.js
 
@@ -92,7 +92,7 @@ This shows that the HEAD and index are both at `e16527`. I now mixed reset that 
 The HEAD and index are now both at `04eb6fa` but my working directory contains the work I have done in the commit that I want to split. I will now stage what I want to commit first. In my case there is only a single file that has been changed, `lib/oauth.js`. I specify to stage only parts of the file with the `-p` option.
 
 	git add -p lib/oauth.js
-	
+
 Git will now ask me for every part what to do. This is what the first part looks like:
 
 	diff --git a/lib/oauth.js b/lib/oauth.js
@@ -108,9 +108,9 @@ Git will now ask me for every part what to do. This is what the first part looks
 	+                                                    "followRedirects": true};
 	   this._oauthParameterSeperator = ",";
 	 };
-	 
-	Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]? 
-	
+
+	Stage this hunk [y,n,q,a,d,/,j,J,g,e,?]?
+
 Staging a hunk has the following options:
 
 	y - stage this hunk
@@ -127,7 +127,7 @@ Staging a hunk has the following options:
 	s - split the current hunk into smaller hunks
 	e - manually edit the current hunk
 	? - print help
-	
+
 I choose `y` to stage this hunk. The next hunk appears, it is also a functional change. I choose `y` again and the next hunk appears. I continue this process by choosing `y` to stage and `n` to not stage the hunks until there is no hunk left.
 
 __tip__: Enabling git colours will help you to understand the diff output better. To enable git colours globally run: `git config --global color.ui auto`.
@@ -137,40 +137,40 @@ __tip__: Enabling git colours will help you to understand the diff output better
 Now parts of the `lib/oauth.js` are staged. I simply commit this with:
 
 	git commit -m 'Add followRedirect client option to turn auto follow on or off'
-	
+
 ## Add the whitespace changes
 
 All functional changes are staged and committed. Now I can simply stage the full `lib/oauth.js` file and commit that as well.
 
 	git add lib/oauth.js
 	git commit -m 'Remove trailing white spaces'
-	
+
 ## Continue the rebase
 
 I have split commit `e16527e` in two new commits. Now I continue the rebase which will move us to the next commit `3458576`.
 
 	git rebase --continue
-	
+
 	Stopped at 3458576... Adds test to proof default value for followRedirects is true
 	You can amend the commit now, with
-	
+
 		git commit --amend
-	
+
 	Once you are satisfied with your changes, run
-	
+
 		git rebase --continue
-		
+
 Once again I reset the HEAD and the index without resetting the actual content of the files.
 
 	git reset HEAD^ --mixed
-	
+
 	Unstaged changes after reset:
 	M	tests/oauth.js
-	
+
 I stage `tests/oauth.js` with the `-p` option:
 
 	git add tests/oauth.js -p
-	
+
 After accepting the first hunk I discover that there are no hunks left. Which means I did not make any whitespace changes to this file.
 
 	diff --git a/tests/oauth.js b/tests/oauth.js
@@ -179,7 +179,7 @@ After accepting the first hunk I discover that there are no hunks left. Which me
 	+++ b/tests/oauth.js
 	@@ -24,6 +24,12 @@ DummyRequest.prototype.end= function(){
 	 }
-	 
+
 	 vows.describe('OAuth').addBatch({
 	+    'When newing OAuth': {
 	+      topic: new OAuth(null, null, null, null, null, null, "PLAINTEXT"),
@@ -191,21 +191,21 @@ After accepting the first hunk I discover that there are no hunks left. Which me
 	         topic: new OAuth(null, null, null, null, null, null, "HMAC-SHA1"),
 	         'we get the expected result string': function (oa) {
 	Stage this hunk [y,n,q,a,d,/,e,?]? y # this is a functional change
-	
+
 I commit with a slightly different message than the original. I start with _add_ instead of _adds_ to make my commit message consistent":
 
 	git commit -m 'Add test to proof default value for followRedirects is true'
-	
+
 ## Finish rebase
 
 I tell git to continue with the rebase.
 
 	git rebase --continue
-	
+
 The rebase will finish because there are not commits left.
 
 	Successfully rebased and updated refs/heads/no-follow-option.
-	
+
 ## Push with force
 
 I now want to push my changes to Github to update my pull request.
@@ -225,7 +225,7 @@ Git rejects my commit because my HEAD doesn't match with the HEAD of the remote.
 This may look scary and definitely is when others are working on my branch as well. But in this case I want to push anyway and discard the _wrong_ history of the remote. I now push with the `-f` force option.
 
 	git push origin no-follow-redirect -f
-	
+
 And I am done!
 
 	Counting objects: 17, done.
@@ -235,7 +235,7 @@ And I am done!
 	Total 12 (delta 8), reused 0 (delta 0)
 	To git@github.com:pjvds/node-oauth.git
 	 + 3458576...3584b43 no-follow-option -> no-follow-option (forced update)
-	 
+
 ## Final pull request
 
 Here is the final pull request version that - hopefully - satisfies Carian: [Don't follow redirects opt-out](https://github.com/ciaranj/node-oauth/pull/138).
