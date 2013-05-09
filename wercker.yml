@@ -7,7 +7,13 @@ build:
         code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
     - script:
         name: generate site
-        code: bundle exec jekyll build
+        code: |
+            if [ "$JEKYLL_INCLUDE_DRAFTS" = "true" ] ;
+            then
+                bundle exec jekyll build --drafts
+            else
+                bundle exec jekyll build
+            fi
 deploy :
   steps :
     - script:
