@@ -10,7 +10,7 @@ build:
         code: bundle exec jekyll build
 deploy :
   steps :
-    script:
+    - script:
         name: adjust server time
         code: sudo ntpdate pool.ntp.org
     - s3sync
