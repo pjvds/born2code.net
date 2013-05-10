@@ -14,3 +14,6 @@ deploy :
         name: adjust server time
         code: sudo ntpdate pool.ntp.org
     - s3sync
+        key_id: $AWS_ACCESS_KEY_ID
+        key_secret: $AWS_SECRET_ACCESS_KEY
+        bucket_url: $AWS_BUCKET_URL
