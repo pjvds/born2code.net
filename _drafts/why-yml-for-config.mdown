@@ -1,0 +1,8 @@
+---
+layout: post
+title: "Why we picked yml instead of json for config"
+categories: [programming]
+keywords: [yml, config, json]
+---
+
+* [String are WYSIWYG](http://yaml.org/spec/1.2/spec.html#id2760844)

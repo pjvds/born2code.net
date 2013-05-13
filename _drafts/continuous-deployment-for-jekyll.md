@@ -15,29 +15,49 @@ With this week's news that [Jekyll](http://jekullrb.com) is at version 1, I deci
 
 ## Why switching?
 
-Github is doing a great job with Github Pages. Simple, reliable and fast webhosting using your own domain for free. I count it as one of the reasons static site generators really took off. Especially because it is powered by Jekyll.
+First of all, Github is doing a great job with [Github Pages](http://pages.github.com/). Fast and simple webhosting with support for custom domains for nothing. I count it as one of the reasons static site generators made it to the main stream. Especially because it [runs Jekyll](https://help.github.com/articles/using-jekyll-with-pages).
 
 Hosting your static site is at Github is [very popular](https://www.google.nl/search?q=hosting+blog+at+github). One of the main reasons is free pricing without loosing [custom domain names](https://help.github.com/articles/setting-up-a-custom-domain-with-pages).
 
-Beside all the goodness, Github runs Jekyll in `--safe` mode. In short this means you can runs plugins. Although not everybody needs plugins, there are a few reasons why you could:
+Beside all the goodness, Github Pages has a few downsides. The biggest one is that Github runs Jekyll in `--safe` mode. In short this means you can not add plugins. Although not everybody needs plugins, there are a few reasons why you could:
 
 * [Adding search to your site](https://github.com/cobbler/jekyll-dynamic-search)
 * [Adding a sitemap.xml](https://github.com/kinnetica/jekyll-plugins)
-* 
+* [Adding full text search](https://github.com/slashdotdash/jekyll-lunr-js-search) - wow!
 
-## Create an S3 bucket
+Next to that you also do not know where your website is actually hosted. And when speed is important you want to host it close to your main audience.
 
-We start by create a Amazon S3 bucket that will hold the site. Using the [S3 web console](https://console.aws.amazon.com/s3/home) you can create a new bucket by clicking the big blue button called `Create Bucket`. A popup will appear where you can enter your bucket name. I entered `born2code.net`, since that is the domain that will host my blog.
+## Amazon S3 hosting
+
+### Create an S3 bucket
+
+We start by create a [Amazon S3 bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) that will hold the website. 
+
+Login to [S3 web console](https://console.aws.amazon.com/s3/home). If you have no buckets, Amazon will start the _create a bucket_ wizard directly. Otherwise, click the big blue button called `Create Bucket` to start it. 
+
+Enter the url of the website as bucketname. I entered `born2code.net`, since that is the domain that will host my blog.
 
 ![image]({{ 'continuous-deployment-for-jekyll/create-bucket-name.png' | asset_url }})
 
-## Enable website hosting
+### Enable website hosting
 
-The bucket is now created and we need to enable website hosting in it. Click on the
+The bucket is now created and we need to enable website hosting in it. 
+
+* Select your bucket on the left pane by clicking on the row. Do not click on the name itself, because this will open the content of the bucket.
+* In the right pane, open the tab called `static website hosting`.
+* Select the `enable website hosting` option.
+* Fill in `index.html` as index document.
+* Fill in `404.html` as error document.
+* Hit `save` to confirm the changes.
 
 ![image]({{ 'continuous-deployment-for-jekyll/enable-website-hosting.png' | asset_url }})
 
-## Access credentials
+### Access credentials
+
+We need to create a key pair that we will use to upload content to the bucket.
+
+* Navigate to [security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials#access_credentials). Note that this is another section on AWS. 
+* Click the `create a new access key` link below the access key list. A new key will be added to the list.
+* Write down the `Access Key Id` and `Secret Access Key`. Click the `show` link to view your secret access key.
 
 ![image]({{ 'continuous-deployment-for-jekyll/generate-key.png' | asset_url }})
-
