@@ -2,6 +2,9 @@
 _site
 _cache
 
+# Ruby stuff
+bin
+
 # SASS compilation cache
 .sass-cache
 
