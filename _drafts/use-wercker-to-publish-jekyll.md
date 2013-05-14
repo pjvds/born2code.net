@@ -44,4 +44,18 @@ When everything succeeded, the follwing screen should appear.
 
 ## Adding wercker.yml
 
-The `wercker.yml` file is the place where we define our build and deployment process.
+The [`wercker.yml`](http://devcenter.wercker.com/articles/werckeryml/intro.html) file is the place where we define our build and deployment process.
+
+Add a `wercker.yml` file with the following content:
+
+    box: wercker/ruby
+    build:
+      steps:
+        - bundle-install
+        - script:
+            name: generate site
+            code: bundle exec jekyll build
+
+The first line `box: wercker/ruby` specifies that we want to use the `wercker/ruby` box. This is a box that has ruby installed by default.
+The second line `build:` is the start of the section that contains out build information. The next level is `steps` which holds the steps that we want preform. In this case a `bundle-install` which is a smart version of the `bundle install` command and a `script` step that we named `generate site` and will execute `bundle exec jekyll build`.
+

@@ -7,9 +7,17 @@ tag: [wercker, jekyll, continuous deployment]
 keywords: [wercker, jekyll, continuous deployment, Amazone S3]
 ---
 
-At wercker, we are big fans of static site generators. Wercker's [blog](http://blog.wercker.com/) is powered by [Jekyll](http://jekyllrb.com/) and [devcenter](http://devcenter.wercker.com) by [middleman](http://middlemanapp.com/). The blog that you are currently visiting - if you are not reading this via RSS or other content aggregation - is also powered by Jekyll.
+We usually associate a *deployment pipeline* as a solution to lower the complexity of deployment for applications that are developed by big teams. But in this article we will go into details of how we can leverage this power for static site generators.
 
-But we are not the only one. I see many of bloggers moving away from [Wordpress](http://wordpress.org) to [Jekyll](http://jekyllrb.com/), [Hyde](http://ringce.com/hyde) or [Octopress](http://octopress.org/). Next to them I met web developers that succesfully used one of these generators for _simple_ websites. One of the best examples is [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/).
+## Static website generators
+
+Static website generatos are getting popular. Many of bloggers are switching from [Wordpress](http://wordpress.org) to [Jekyll](http://jekyllrb.com/), [Hyde](http://ringce.com/hyde) or [Octopress](http://octopress.org/). Webdevelopers leverage the power of static site generation to build [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) with great success.
+
+
+
+## Static output
+
+
 
 With this week's news that [Jekyll](http://jekullrb.com) is at version 1, I decided to share the way I switched from [Github Pages](http://pages.github.com/) to [Amazon S3](http://aws.amazon.com/s3/) for hosting and how I leverage the power of [Wercker](https://wercker.com/) to automate my build and deployment process.
 
@@ -31,9 +39,9 @@ Next to that you also do not know where your website is actually hosted. And whe
 
 ### Create an S3 bucket
 
-We start by create a [Amazon S3 bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) that will hold the website. 
+We start by create a [Amazon S3 bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) that will hold the website.
 
-Login to [S3 web console](https://console.aws.amazon.com/s3/home). If you have no buckets, Amazon will start the _create a bucket_ wizard directly. Otherwise, click the big blue button called `Create Bucket` to start it. 
+Login to [S3 web console](https://console.aws.amazon.com/s3/home). If you have no buckets, Amazon will start the _create a bucket_ wizard directly. Otherwise, click the big blue button called `Create Bucket` to start it.
 
 Enter the url of the website as bucketname. I entered `born2code.net`, since that is the domain that will host my blog.
 
@@ -41,7 +49,7 @@ Enter the url of the website as bucketname. I entered `born2code.net`, since tha
 
 ### Enable website hosting
 
-The bucket is now created and we need to enable website hosting in it. 
+The bucket is now created and we need to enable website hosting in it.
 
 * Select your bucket on the left pane by clicking on the row. Do not click on the name itself, because this will open the content of the bucket.
 * In the right pane, open the tab called `static website hosting`.
@@ -56,7 +64,7 @@ The bucket is now created and we need to enable website hosting in it.
 
 We need to create a key pair that we will use to upload content to the bucket.
 
-* Navigate to [security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials#access_credentials). Note that this is another section on AWS. 
+* Navigate to [security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials#access_credentials). Note that this is another section on AWS.
 * Click the `create a new access key` link below the access key list. A new key will be added to the list.
 * Write down the `Access Key Id` and `Secret Access Key`. Click the `show` link to view your secret access key.
 
