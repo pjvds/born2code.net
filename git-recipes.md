@@ -65,3 +65,9 @@ Where `current-branch` is the name of the current branch you want to rename and 
 
 
 Where `<old-name>` is the name of the committer you want to fix and `<new-name>` and `<new-mail>` are the new name and email address of the committer.
+
+## Change origin url
+
+    git remote set-url origin <new-url>
+
+Where `<new-url>` is the new origin, eq: `https://pjvds@bitbucket.org/pjvds/healthcheck.git`.
