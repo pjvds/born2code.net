@@ -8,5 +8,5 @@ rdiscount:
 permalink: /blog/:year/:month/:day/:title
 pygments: true
 exclude: ["_config.json", "README.md", "scss", "wercker.json"]
-paginate: 10
+paginate: 1
 content_assets_base: http://born2code.net/assets/posts/

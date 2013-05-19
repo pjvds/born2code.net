@@ -10,7 +10,7 @@ build:
         code: bundle exec jekyll build --draft -d ./_staging
     - script:
         name: generate production
-        code: bundle exec jekyll build --draft -d ./_production
+        code: bundle exec jekyll build -d ./_production
 deploy :
   steps :
     - s3sync:
