@@ -50,7 +50,7 @@ body {
 // Primary
 // ==========================================================================
 .primary {
-  padding: 6% 4% 12% 6%;
+  padding: 1% 4% 12% 6%;
   width: 70%;
   @include breakpoint(large-desktop) {
     width: 64%; }
@@ -60,7 +60,7 @@ body {
 // Secondary
 // ==========================================================================
 .secondary {
-  padding: 6% 6% 12% 4%;
+  padding: 1% 6% 12% 4%;
   width: 30%;
   @include breakpoint(large-desktop) {
     width: 36%; }
