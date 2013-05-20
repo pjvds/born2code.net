@@ -28,7 +28,9 @@ If you have any questions, comments, or would just like to say hello, please don
 
 The reason this website looks awesome is [David Ensinger](http://davidensinger.com/). I used his site design as a foundation for this one. I develop mainly on a [MacBook Pro](http://www.apple.com/macbook-pro/) (can't live without a retina display anymore). [Sublime Text 2](http://www.sublimetext.com/) is my primarily editor. Type is set in [Open Sans](http://www.google.com/webfonts/specimen/Open+Sans), which is served by [Google Web Fonts](http://www.google.com/webfonts). Posts are composed in [Markdown](http://daringfireball.net/projects/markdown/) which I write in [Mou](http://mouapp.com) or [Sublime Text](http://www.sublimetext.com/) and syntax is highlighted with [Pygments](http://pygments.org/).
 
-The site is generated with [Jekyll](http://jekyllrb.com/) and hosted on [Amazone S3](http://aws.amazon.com/s3/). I use [wercker](https://wercker.com) to automate the build and deployment process. The source code is hosted at [github](http://github.com) in the repository [pjvds/born2code](http://github.com/pjvds/born2code). You are free to fork or steel anything you find useful.
+The site is generated with [Jekyll](http://jekyllrb.com/) and hosted on [Amazone S3](http://aws.amazon.com/s3/). The process to generation and deployment is automated with [wercker](https://app.wercker.com/project/bykey/c38587366b136b180eb7108c9c250cdc).
+
+The source code is hosted at [github](http://github.com) in the repository [pjvds/born2code](http://github.com/pjvds/born2code). You are free to fork or steel anything you find useful.
 
 A number of supporting plugins and code snippets for Jekyll are used with the site:
 
