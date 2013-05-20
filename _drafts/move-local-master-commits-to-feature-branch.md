@@ -7,9 +7,15 @@ tag: [git]
 keywords: [git, reset, feature branch, branches]
 ---
 
-I'm a big fan of feature branches. Especially that you can keep your history clean with it and using the power of rewriting history without making everybody in your team mad.
+I'm a big fan of feature branches. Especially because it allows you to rewrite history and therefor keeping it clean and to the point. But there is a single thing I keep doing wrong. I forget to create a feature branch and commit my work directly to master. I normally notice this just before pushing. In this post I'd like to share the steps I take to fix my work and move the local commits from master to a feature branch.
 
-Only there is a single thing I keep forgetting with feature branching. That is to create a feature branch. Most of the time I discover just before I think it is time to publish that I committed all my work to the master branch.
+## tldr;
+
+1. `git branch feature-x` will simply create a new branch called feature-x.
+2. `git reset --hard HEAD~4` will reset the current master branch to HEAD minus 3 commits (C--D--E)
+3. `git checkout feature-x` will simply switch to the feature-x branch which still contains the 4 commits (B--C--D--E)
+
+## Moving local master commits to feature branch
 
 Let me share a recipe how to introduce a feature branch and move your commits to it.
 
@@ -45,9 +51,3 @@ Now reset the branch of `master` to commit `A` which is 4 positions from `HEAD`:
           origin/master
 
 This will reset the current `master` branch to `HEAD` minus `4` positions.
-
-Here is what happened:
-
-1. `git branch feature-x` will simply create a new branch called feature-x.
-2. `git reset --hard HEAD~4` will reset the current master branch to HEAD minus 3 commits (C--D--E)
-3. `git checkout feature-x` will simply switch to the feature-x branch which still contains the 4 commits (B--C--D--E)
