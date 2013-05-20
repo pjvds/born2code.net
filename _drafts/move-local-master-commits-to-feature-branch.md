@@ -17,7 +17,7 @@ I'm a big fan of feature branches. Especially because it allows you to rewrite h
 
 ## Moving local master commits to feature branch
 
-Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D` and `E` is the work I did and which should move to a feature branch:
+Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D` and `E` is the work I did on master directly and should moved to a feature branch.
 
                         master
                           ↓
@@ -27,11 +27,11 @@ Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D
 
 Since a branch in git is just a pointer this is can easily be done.
 
-Let's first create the new feature branch and call it `feature-x`.
+Let us first create the new feature branch and call it `feature-x`.
 
     git branch feature-x
 
-This creates a new branch `feature-x` that points to the same commit as the current branch, `master`. So both `master` and `feature-x` point to the last commit `E`.
+This creates a new branch `feature-x` that points to the same commit as the current branch, `master` So both `master` and `feature-x` point to the last commit `E`.
 
                          feature-x
                           master
@@ -40,15 +40,19 @@ This creates a new branch `feature-x` that points to the same commit as the curr
                 ↑
           origin/master
 
-Now reset the current branch `master` to commit `A` which is 4 positions from `HEAD`:
+Now reset the current branch `master` to commit `A`. This can be done by resetng it _x_ possitions back.
 
     git reset --hard HEAD~4
 
-Or;
+I use that approuch when it is just a single commit (`HEAD^`) or not more than a hand full. Otherwise, I reset it to `origin/master`.
 
-  git reset --hard origin/master
+    git reset --hard origin/master
 
-This moves the local `master` branch to point to commit `A`.
+I rarely reset to a commit sha like the following. But if you know the sha from commit `A` you can use it to reset to there.
+
+    git reset --hard fd83c2
+
+All the above reset (move the pointer) the local `master` branch to point to commit `A`.
 
               master    feature-x
                 ↓           ↓
@@ -58,13 +62,13 @@ This moves the local `master` branch to point to commit `A`.
 
 We can now checkout branch `feature-x` to continue our work in the feature branch.
 
-  git checkout feature-x
+    git checkout feature-x
 
 Every commit we do now adds to the `feature-x` branch.
 
-  touch file.txt
-  git add file.txt
-  git commit -m 'Adds file.txt'
+    touch file.txt
+    git add file.txt
+    git commit -m 'Adds file.txt'
 
 And our git repository will look like the following.
 
@@ -73,5 +77,17 @@ And our git repository will look like the following.
     commits     A--B--C--D--E--F
                 ↑
           origin/master
+
+We can share our feature branch by pushing it to the remote.
+
+    git push origin feature-x
+
+This closes there circle and the repository looks like the following.
+
+              master       feature-x
+                ↓              ↓
+    commits     A--B--C--D--E--F
+                ↑              ↑
+          origin/master  origin/feature-x
 
 Happy git'ng!
