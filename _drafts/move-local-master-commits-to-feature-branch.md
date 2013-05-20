@@ -7,13 +7,13 @@ tag: [git]
 keywords: [git, reset, feature branch, branches]
 ---
 
-I'm a big fan of feature branches. Especially because it allows you to rewrite history and therefor keeping it clean and to the point. But there is a single thing I keep doing wrong. I forget to create a feature branch and commit my work directly to master. I normally notice this just before pushing. In this post I'd like to share the steps I take to fix my work and move the local commits from master to a feature branch.
+I'm a big fan of feature branches. Especially because it allows me to rewrite history and therefor keeping it clean and to the point. But there is one thing I keep doing wrong. I forget to create a feature branch and commit my work directly to master. I normally notice this just before pushing. In this post I'd like to share the steps I take to fix my work and move the local commits from master to a feature branch.
 
 ## tldr;
 
-1. `git branch feature-x` will simply create a new branch called feature-x.
+1. `git branch feature` will simply create a new branch called feature.
 2. `git reset --hard HEAD~4` will reset the current master branch to HEAD minus 3 commits (C--D--E)
-3. `git checkout feature-x` will simply switch to the feature-x branch which still contains the 4 commits (B--C--D--E)
+3. `git checkout feature` will simply switch to the feature branch which still contains the 4 commits (`B--C--D--E`)
 
 ## Moving local master commits to feature branch
 
@@ -27,13 +27,13 @@ The following ASCII drawing represents the situation.
 
 Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D` and `E` is the work I did on master directly and should moved to a feature branch.
 
-Since a branch in git is just a pointer this is can easily be done. Let us first create the new feature branch and call it `feature-x`. We do this now because it should have the same state as the current `master` branch.
+Since a branch in git is just a pointer this is can easily be done. Let us first create the new feature branch and call it `feature`. We do this now because it should have the same state as the current `master` branch.
 
-    git branch feature-x
+    git branch feature
 
-Both `master` and `feature-x` point to the last commit `E`.
+Both `master` and `feature` point to the last commit `E`.
 
-                         feature-x
+                         feature
                           master
                             ↓
     commits     A--B--C--D--E
@@ -54,17 +54,17 @@ I rarely reset to a commit sha like the following. But if you know the sha from 
 
 All the above reset (move the pointer) the local `master` branch to point to commit `A`.
 
-              master    feature-x
+              master     feature
                 ↓           ↓
     commits     A--B--C--D--E
                 ↑
           origin/master
 
-We can now checkout branch `feature-x` to continue our work in the feature branch.
+We can now checkout branch `feature` to continue our work in the feature branch.
 
-    git checkout feature-x
+    git checkout feature
 
-Every commit we do now adds to the `feature-x` branch.
+Every commit we do now adds to the `feature` branch.
 
     touch file.txt
     git add file.txt
@@ -72,7 +72,7 @@ Every commit we do now adds to the `feature-x` branch.
 
 And our git repository will look like the following.
 
-              master       feature-x
+              master        feature
                 ↓              ↓
     commits     A--B--C--D--E--F
                 ↑
@@ -80,14 +80,14 @@ And our git repository will look like the following.
 
 We can share our feature branch by pushing it to the remote.
 
-    git push origin feature-x
+    git push origin feature
 
 This closes there circle and the repository looks like the following.
 
-              master       feature-x
+              master        feature
                 ↓              ↓
     commits     A--B--C--D--E--F
                 ↑              ↑
-          origin/master  origin/feature-x
+          origin/master  origin/feature
 
 Happy git'ng!
