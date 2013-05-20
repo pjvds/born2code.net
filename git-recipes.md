@@ -71,3 +71,9 @@ Where `<old-name>` is the name of the committer you want to fix and `<new-name>`
     git remote set-url origin <new-url>
 
 Where `<new-url>` is the new origin, eq: `https://pjvds@bitbucket.org/pjvds/healthcheck.git`.
+
+## Unstage a file
+
+    git reset HEAD <file>
+
+Where `<file>` is the path to the file. This will unstage the file by removing it from the current index but leaves the content changes. A `git status` will show the file as untracked.
