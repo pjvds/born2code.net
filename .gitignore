@@ -1,6 +1,8 @@
 # Stuff that Jekyll generates
 _site
 _cache
+_staging
+_production
 
 # Ruby stuff
 bin
