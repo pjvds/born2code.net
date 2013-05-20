@@ -8,14 +8,14 @@ build:
     - script:
         name: generate staging
         code: |-
-            bundle exec jekyll build --draft -t -d ./_staging
+            bundle exec jekyll build --draft --trace --destination ./_staging
             echo '# robots.txt' > ./_staging/robots.txt
             echo 'User-agent: *' >> ./_staging/robots.txt
             echo 'Disallow: /' >> ./_staging/robots.txt
     - script:
         name: generate production
         code: |-
-            bundle exec jekyll build -d -t ./_production
+            bundle exec jekyll build --trace --destination ./_production
             echo '# robots.txt' > ./_production/robots.txt
             echo 'User-agent: *' >> ./_production/robots.txt
             echo 'Allow: /' >> ./_production/robots.txt
