@@ -1,7 +1,6 @@
 born2code.net
 =============
 
-My personal website
+[![wercker status](https://app.wercker.com/status/c38587366b136b180eb7108c9c250cdc/m)](https://app.wercker.com/project/bykey/c38587366b136b180eb7108c9c250cdc)
 
-[![Wercker status](https://app.wercker.com/status/67bb3e8c735fceb3f4acdeda71d294ac/m)](https://app.wercker.com/project/bykey/67bb3e8c735fceb3f4acdeda71d294ac)
-                      
+Information about the technology behind this site and background information about me can be found at the [about page](http://born2code.net/about/) of [born2code.net](http://born2code.net)
