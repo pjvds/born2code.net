@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "jump fast with autojump"
+title: "Jump fast with autojump"
 comments: true
 categories: [programming]
 tag: [terminal, zsh, cd, autojump]
