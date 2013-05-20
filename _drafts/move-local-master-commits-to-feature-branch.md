@@ -17,7 +17,7 @@ I'm a big fan of feature branches. Especially because it allows you to rewrite h
 
 ## Moving local master commits to feature branch
 
-Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D` and `E` is the work I did on master directly and should moved to a feature branch.
+The following ASCII drawing represents the situation.
 
                         master
                           ↓
@@ -25,13 +25,13 @@ Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D
               ↑
         origin/master
 
-Since a branch in git is just a pointer this is can easily be done.
+Commit `A` is where `origin/HEAD` (the remote master branch) is and `B`, `C`, `D` and `E` is the work I did on master directly and should moved to a feature branch.
 
-Let us first create the new feature branch and call it `feature-x`.
+Since a branch in git is just a pointer this is can easily be done. Let us first create the new feature branch and call it `feature-x`. We do this now because it should have the same state as the current `master` branch.
 
     git branch feature-x
 
-This creates a new branch `feature-x` that points to the same commit as the current branch, `master` So both `master` and `feature-x` point to the last commit `E`.
+Both `master` and `feature-x` point to the last commit `E`.
 
                          feature-x
                           master
@@ -40,7 +40,7 @@ This creates a new branch `feature-x` that points to the same commit as the curr
                 ↑
           origin/master
 
-Now reset the current branch `master` to commit `A`. This can be done by resetng it _x_ possitions back.
+We do not want the commits `B` to `E` to be on the `master` branch, so we reset that one to commit `A`. This can be done by resetng it _x_ possitions back.
 
     git reset --hard HEAD~4
 
