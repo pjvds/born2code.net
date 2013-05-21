@@ -9,6 +9,8 @@ build:
         name: generate staging
         code: |-
             bundle exec jekyll build --draft --trace --destination ./_staging
+
+            # generate robots.txt which disallows all
             echo '# robots.txt' > ./_staging/robots.txt
             echo 'User-agent: *' >> ./_staging/robots.txt
             echo 'Disallow: /' >> ./_staging/robots.txt
@@ -16,6 +18,9 @@ build:
         name: generate production
         code: |-
             bundle exec jekyll build --trace --destination ./_production
+
+            # generate robots.txt which allows all
+            # and explicitly points to sitemap.xml
             echo '# robots.txt' > ./_production/robots.txt
             echo 'User-agent: *' >> ./_production/robots.txt
             echo 'Allow: /' >> ./_production/robots.txt
