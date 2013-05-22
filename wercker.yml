@@ -18,6 +18,7 @@ build:
         code: bundle exec jekyll build --trace --destination ./_production
     - create-file:
         name: generate production robots.txt
+        overwrite: true
         filename: robots.txt
         content: |-
             User-agent: *
