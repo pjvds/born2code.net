@@ -9,7 +9,6 @@ build:
         name: generate staging site
         code: bundle exec jekyll build --draft --trace --destination ./_staging
     - create-file:
-        name: generate stating robots.txt
         filename: robots.txt
         content: |-
             User-agent: *
