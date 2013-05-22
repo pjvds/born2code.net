@@ -6,25 +6,24 @@ build:
         name: sass compile
         code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
     - script:
-        name: generate staging
-        code: |-
-            bundle exec jekyll build --draft --trace --destination ./_staging
-
-            # generate robots.txt which disallows all
-            echo '# robots.txt' > ./_staging/robots.txt
-            echo 'User-agent: *' >> ./_staging/robots.txt
-            echo 'Disallow: /' >> ./_staging/robots.txt
+        name: generate staging site
+        code: bundle exec jekyll build --draft --trace --destination ./_staging
+    - create-file:
+        name: generate stating robots.txt
+        filename: robots.txt
+        content: |-
+            User-agent: *
+            Disallow: /
     - script:
-        name: generate production
-        code: |-
-            bundle exec jekyll build --trace --destination ./_production
-
-            # generate robots.txt which allows all
-            # and explicitly points to sitemap.xml
-            echo '# robots.txt' > ./_production/robots.txt
-            echo 'User-agent: *' >> ./_production/robots.txt
-            echo 'Allow: /' >> ./_production/robots.txt
-            echo 'Sitemap: http://born2code.net/sitemap.xml' >> ./_production.robots.txt
+        name: generate production site
+        code: bundle exec jekyll build --trace --destination ./_production
+    - create-file:
+        name: generate production robots.txt
+        filename: robots.txt
+        content: |-
+            User-agent: *
+            Allow: /
+            Sitemap: http://born2code.net/sitemap.xml
 deploy :
   steps :
     - s3sync:
