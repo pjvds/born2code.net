@@ -7,8 +7,12 @@ module Filters
 	end
 
 	def asset_url(input)
+		if input[0] == '/'
+			raise 'input can not start with slash!'
+		end
+
 		base = @context.registers[:site].config['content_assets_base']
-		URI.join(base, input)
+		return base + input
 	end
 end
 
