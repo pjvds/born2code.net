@@ -20,17 +20,21 @@ Flags and simple values play an important role in config files.
 
 ### Yaml
 
+{% highlight yaml %}
 name: Pieter Joot van de Sande
 url: http://born2code.net
 email: pj@born2code.net
+{% endhighlight %}
 
 ### Json
 
+{% highlight json %}
 {
   name: 'Pieter Joot van de Sande',
   url: 'http://born2code.net',
   email: 'pj@born2code.net'
 }
+{% endhighlight %}
 
 ## String format
 
@@ -40,8 +44,6 @@ Linebreak in strings and other format characters can be very important. Especial
 
 {% highlight yaml %}
 create-file:
-    name: generate production robots.txt
-    overwrite: true
     filename: robots.txt
     content: |-
         User-agent: *
@@ -52,12 +54,11 @@ create-file:
 #### Json
 
 {% highlight json %}
-{ 'create-file':
+{
+  "create-file":
   {
-    name: 'generate production robots.txt',
-    overwrite: true,
-    filename: 'robots.txt',
-    content: 'User-agent: *\nAllow: /\nSitemap: http://born2code.net/sitemap.xml'
+    filename: "robots.txt",
+    content: "User-agent: *\nAllow: /\nSitemap: http://born2code.net/sitemap.xml"
   }
 }
 {% endhighlight %}
