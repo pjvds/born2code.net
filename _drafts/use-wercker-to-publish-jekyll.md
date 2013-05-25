@@ -16,14 +16,14 @@ Wercker is a content continuous delivery platform in the cloud. You can leverage
 
 ## Assumptions
 
-* You have [created a account](https://app.wercker.com/users/new/) at wercker.
+* You have [created a free account](https://app.wercker.com/users/new/) at wercker.
 * You have the code of your jekyll site hosted at [Github](http://github.com) or [Bitbucket](http://bitbucket.com).
 * You have cloned a repository that contains a [jekyll](http://jekyllrb.com) site locally.
 * You have an [Amazon S3 bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) that hosts your website.
 
 ## Add your application to wercker
 
-The first step is to add your application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button.
+First add your application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button.
 
 ![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/welcome-to-wercker.png' | asset_url }})
 
@@ -125,4 +125,5 @@ Let me help you! Just [tweet me](http://twitter.com/pjvds) or sent me an e-mail 
 ## Learn more
 
 * You can learn more from [my wercker.yml file](https://github.com/pjvds/born2code.net/blob/master/wercker.yml).
+* See my [born2code.net application](https://app.wercker.com/#project/5198a619a4dd999717000331) at wercker.
 * More about the wercker.yml can be found at the [wercker devcenter](http://devcenter.wercker.com/articles/werckeryml/).
