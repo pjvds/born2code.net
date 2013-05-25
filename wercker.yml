@@ -2,28 +2,28 @@ box: wercker/ruby
 build:
   steps:
     - bundle-install
-    # - script:
-    #     name: sass compile
-    #     code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
     - script:
-        name: generate site
+        name: sass compile
+        code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
+    - script:
+        name: generate staging site
         code: bundle exec jekyll build --draft --trace --destination ./_staging
-    # - create-file:
-    #     filename: robots.txt
-    #     content: |-
-    #         User-agent: *
-    #         Disallow: /
-    # - script:
-    #     name: generate production site
-    #     code: bundle exec jekyll build --trace --destination ./_production
-    # - create-file:
-    #     name: generate production robots.txt
-    #     overwrite: true
-    #     filename: robots.txt
-    #     content: |-
-    #         User-agent: *
-    #         Allow: /
-    #         Sitemap: http://born2code.net/sitemap.xml
+    - create-file:
+        filename: robots.txt
+        content: |-
+            User-agent: *
+            Disallow: /
+    - script:
+        name: generate production site
+        code: bundle exec jekyll build --trace --destination ./_production
+    - create-file:
+        name: generate production robots.txt
+        overwrite: true
+        filename: robots.txt
+        content: |-
+            User-agent: *
+            Allow: /
+            Sitemap: http://born2code.net/sitemap.xml
 deploy :
   steps :
     - s3sync:
