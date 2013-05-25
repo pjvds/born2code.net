@@ -7,42 +7,37 @@ tag: [wercker, jekyll, continuous deployment]
 keywords: [wercker, jekyll, continuous deployment, Amazone S3]
 ---
 
-We usually associate a *automated deployment pipeline* as a solution to lower the complexity of deployment for applications that are developed by big teams. But in this article we will go into details of how we can leverage it for static site generators.
+We usually associate an *automated deployment pipeline* as a solution to lower the complexity of deployment for applications that are developed by big teams. But in this article we will go into detail of how we can leverage it for the popular static site generator [Jekyll](http://jekyllrb.com).
 
-With many [blogger moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/), people are now accepting them as an alternative to dynamically generated websites. Especially when security, performance and hosting simplicity are important.
+With many [blogger moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) people are accepting static site generators as a serious alternative. Especially when security and performance are important.
 
-Although static site generators introduce a lot of goodness, they come with a price. Every time the content changes, you need to regenerate the site. This regeneration must be done by a machine that has the static site generator software installed. For Jekyll this means you need to have [Ruby](http://www.ruby-lang.org/) and [Jekyll](http://jekyllrb.com) installed. Although this may not be a problem for your development machine, it will held you from finishing an article on your tablet or fixing a typo from your cell phone.
+Beside all the goodness static site generators offer, they come with a price. You need to regenerate the site every time the content changes. This must be done by a machine that has the static site generator software installed. For Jekyll this means [Ruby](http://www.ruby-lang.org/) and [Jekyll](http://jekyllrb.com). Although this may not be a problem for your development machine, it will held you from finishing an article on your tablet or fixing a typo from your cell phone.
 
 ## Wercker to the rescue!
 
-Wercker is a content continuous delivery platform in the cloud. We can leverage its power to do the content generation and deployment process for us.
+Wercker is a content continuous delivery platform in the cloud. You can leverage its power to do the content generation and deployment process for you. Here is how you set it up for a [Jekyll](http://jekyllrb.com) site that is hosted on [Amazon S3](http://aws.amazon.com/s3/).
 
 ## Assumptions
 
-I assume the following:
-
 * You have [created a account](https://app.wercker.com/users/new/) at wercker.
-* You have the code of your yekyll site hosted at [Github](http://github.com) or [Bitbucket](http://bitbucket.com).
+* You have the code of your jekyll site hosted at [Github](http://github.com) or [Bitbucket](http://bitbucket.com).
 * You have cloned a repository that contains a [jekyll](http://jekyllrb.com) site locally.
-* You have an [Amazon S3 bucket setup](http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) that hosts your website.
+* You have an [Amazon S3 bucket](http://docs.aws.amazon.com/AmazonS3/latest/dev/HostingWebsiteOnS3Setup.html) that hosts your website.
 
 ## Add your application to wercker
 
-After you signed into [wercker](http://app.wercker.com/) you can add your application by clicking the `add an application` button.
+The first step is to add your application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button. 
 
 ![image]({{ 'use-wercker-to-publish-jekyll/welcome-to-wercker.png' | asset_url }})
 
-The process that starts let you choose your repository at Github or Bitbucket. After you picked your repository, make sure you give the user `werckerbot` read rights on your repository by making it a collaborator.
+Follow the steps that and make sure you give the `werckerbot` user read rights on your repository at Github or Bitbucket.
 
-When everything succeeded, the following screen should appear.
+When everything succeeded, the following screen appears.
 
 ![image]({{ 'use-wercker-to-publish-jekyll/thank-you-for-adding-a-new-project.png' | asset_url }})
 
 ## Creating the wercker.yml
-
-The [`wercker.yml`](http://devcenter.wercker.com/articles/werckeryml/intro.html) file is the place where we define our build and deployment process.
-
-Create a `wercker.yml` file in the root of your repository with the following content:
+It is time to define your build process. Create a new file called `wercker.yml` in the root of your repository with the following content:
 
 {% highlight yaml %}
 # define we want to run our build in a ruby box
@@ -78,9 +73,59 @@ Because you have created an application for this repository on wercker it should
 
 ![image]({{ 'use-wercker-to-publish-jekyll/first-build.png' | asset_url }})
 
-Congratulations, you first green build at wercker! If you send me a screenshot I will make sure you receive a sticker to celibrate.
+Congratulations, you first green build at wercker! If you send me a screenshot I will make sure you receive a sticker to celebrate.
 
-## Add deployment target
-Now you have automated your content genereration process. Everytime you push your code to git wercker will start this process. This is helpful to catch jekyll errors early, but without a deployment it doesn't help your live website.
+## Add deployment target information
+Now you have automated your content generation process. Every time you push your code to git wercker will start this process. This is helpful to catch jekyll errors early, but without a deployment it doesn't help your live website.
 
 Goto your application at [app.wercker.com](https://app.wercker.com) and click on the settings tab.
+
+![image]({{ 'use-wercker-to-publish-jekyll/add-custom-deploy.png' | asset_url }})
+
+A new form opens that where you can enter the information that is passed to the deployment. Here you enter the details of our Amazon S3 bucket. The key and secret key can be found in the [AWS security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials) page.
+
+![image]({{ 'use-wercker-to-publish-jekyll/deploy-details.png' | asset_url }})
+
+_note: this aren't my real keys… duh!_
+
+When you are hosting on another platform, you could use this to enter the FTP details.
+
+## Add deployment steps
+The current `wercker.yml` file contains the steps that are executed when the application is build. Now you want to add steps that are executed when the application is deployed. The steps is executed in a context that hold the information you have entered in the previous step; key, secret and s3 url.
+
+Add the following to the end of your current `wercker.yml` file:
+
+{% highlight yaml %}
+deploy:
+  steps:
+    - s3sync
+        key_id: $KEY
+        key_secret: $SECRET
+        bucket_url: $BUCKET
+        source: _site/
+{% endhighlight %}
+
+The `s3sync` step synchronises a source directory with an Amazon S3 bucket. The `key_id`, `key_secret` and `bucket_url` options are set to the information from the deploy target created in the previous step. Only the `source` option is _hard coded_ (or should I say _hard configure_?) to `_site/`. This is the directory where jekyll stores the output.
+
+We could also _hard code_ the key and key secret in here, but that is not something you want to put in your git repository. Especially not when you repository is public like [mine](https://github.com/pjvds/born2code.net).
+
+Commit the changes of the `wercker.yml` file and push them to your repository.
+
+{% highlight bash %}
+git add wercker.yml
+git commit -m 'Add deployment section'
+git push origin master
+{% endhighlight %}
+
+## Deploy it!
+You have pushed changes to your repository, thus wercker created another build. Now the deployment information that you have added in the previous steps can be used to deploy the website. This can be done for every successful build in your application by clicking the blue deploy button.
+
+![image]({{ 'use-wercker-to-publish-jekyll/deploy-it.png' | asset_url }})
+
+## Did anything go wrong?
+Let me help you! Just [tweet me](http://twitter.com/pjvds) or sent me an e-mail [pj@born2code.net](mailto:pj@born2code.net).
+
+## Learn more
+
+* You can learn more from [my wercker.yml file](https://github.com/pjvds/born2code.net/blob/master/wercker.yml).
+* More about the wercker.yml can be found at the [wercker devcenter](http://devcenter.wercker.com/articles/werckeryml/).
