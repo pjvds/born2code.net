@@ -15,8 +15,7 @@ Before we look at various situation it is good to know what the wercker.yml is u
 3. Container for small settings.
 
 ## Simple settings
-
-Flags and simple values play an important role in config files.
+Flags and simple values play an important role in config files. Here I like the yaml because it is straight forward and less verbose.
 
 ### Yaml
 
@@ -33,6 +32,46 @@ email: pj@born2code.net
   name: 'Pieter Joot van de Sande',
   url: 'http://born2code.net',
   email: 'pj@born2code.net'
+}
+{% endhighlight %}
+
+## Swapping lines
+Sometimes you want to swap lines to create a logical order. Let's swap url and email from the previous example. Here I definitely like the yaml because you do not have to change the actual line by adding an extra `,` at the end of the line for `email` and remove it for `url`. Pretty stupid that json doesn't allow trailing comma's.
+
+### Yaml
+
+{% highlight yaml %}
+name: Pieter Joot van de Sande
+email: pj@born2code.net
+url: http://born2code.net
+{% endhighlight %}
+
+### Json
+
+{% highlight json %}
+{
+  name: 'Pieter Joot van de Sande',
+  email: 'pj@born2code.net',
+  url: 'http://born2code.net'
+}
+{% endhighlight %}
+
+## Commenting
+Comments are important information for your future self or others. Yaml supports comments out of the box with the `#` characters. Json doesn't support comments, instead [Douglas Crockford](https://plus.google.com/118095276221607585885/posts/RK8qyGVaGSr) advices users to add comments and pipe it through JSMin just before handling it to you JSON parser. Others suggest to insert bogus fields like `__comment`. But in this case Yaml is definitely the winner.
+
+### Yaml
+
+{% highlight yaml %}
+# Since tables names collide, enabled prefixing.
+prefix: tbl
+{% endhighlight %}
+
+
+{% highlight json %}
+### Json
+{
+  "__comment": "Since tables names collide, enabled prefixing."
+  prefix: "tbl"
 }
 {% endhighlight %}
 
