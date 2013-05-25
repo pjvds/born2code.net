@@ -1,7 +1,6 @@
 ---
 layout: post
-title: "Simplify the publishing process of Jekyll using wercker"
-comments: true
+title: "Simplify your Jekyll publishing process with wercker"
 categories: [programming]
 tag: [wercker, jekyll, continuous deployment]
 keywords: [wercker, jekyll, continuous deployment, Amazone S3]
@@ -24,15 +23,15 @@ Wercker is a content continuous delivery platform in the cloud. You can leverage
 
 ## Add your application to wercker
 
-The first step is to add your application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button. 
+The first step is to add your application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button.
 
-![image]({{ 'use-wercker-to-publish-jekyll/welcome-to-wercker.png' | asset_url }})
+![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/welcome-to-wercker.png' | asset_url }})
 
 Follow the steps that and make sure you give the `werckerbot` user read rights on your repository at Github or Bitbucket.
 
 When everything succeeded, the following screen appears.
 
-![image]({{ 'use-wercker-to-publish-jekyll/thank-you-for-adding-a-new-project.png' | asset_url }})
+![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/thank-you-for-adding-a-new-project.png' | asset_url }})
 
 ## Creating the wercker.yml
 It is time to define your build process. Create a new file called `wercker.yml` in the root of your repository with the following content:
@@ -46,8 +45,8 @@ build:
     # which improves build execution time of
     # future builds
     - bundle-install
-    
-    # A customer script step 
+
+    # A customer script step
     # that build the jekyll site
     - script:
         name: generate site
@@ -69,7 +68,7 @@ git push origin master
 
 Because you have created an application for this repository on wercker it should now start building.
 
-![image]({{ 'use-wercker-to-publish-jekyll/first-build.png' | asset_url }})
+![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/first-build.png' | asset_url }})
 
 Congratulations, you first green build at wercker! If you send me a screenshot I will make sure you receive a sticker to celebrate.
 
@@ -78,11 +77,11 @@ Now you have automated your content generation process. Every time you push your
 
 Goto your application at [app.wercker.com](https://app.wercker.com) and click on the settings tab.
 
-![image]({{ 'use-wercker-to-publish-jekyll/add-custom-deploy.png' | asset_url }})
+![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/add-custom-deploy.png' | asset_url }})
 
 A new form opens that where you can enter the information that is passed to the deployment. Here you enter the details of our Amazon S3 bucket. The key and secret key can be found in the [AWS security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials) page.
 
-![image]({{ 'use-wercker-to-publish-jekyll/deploy-details.png' | asset_url }})
+![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/deploy-details.png' | asset_url }})
 
 _note: this aren't my real keys… duh!_
 
@@ -118,7 +117,7 @@ git push origin master
 ## Deploy it!
 You have pushed changes to your repository, thus wercker created another build. Now the deployment information that you have added in the previous steps can be used to deploy the website. This can be done for every successful build in your application by clicking the blue deploy button.
 
-![image]({{ 'use-wercker-to-publish-jekyll/deploy-it.png' | asset_url }})
+![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/deploy-it.png' | asset_url }})
 
 ## Did anything go wrong?
 Let me help you! Just [tweet me](http://twitter.com/pjvds) or sent me an e-mail [pj@born2code.net](mailto:pj@born2code.net).
