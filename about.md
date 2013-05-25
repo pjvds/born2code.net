@@ -3,22 +3,18 @@ layout: page
 title: About
 permalink: /about/
 page-class: page-about
-sitemap:
-  priority: 0.7
-  changefreq: weekly
-  lastmod: 2013-05-06T18:55:00-04:00
 ---
 
 Hi, my name is __Pieter Joost van de Sande__ and I’m a __software engineer__ for almost a decade.
 
-I'm currently employed by [wercker](https://wercker.com), a startup based in Amsterdam. We are building an integral software delivery platform in the cloud.
+I'm currently employed by [wercker](https://wercker.com), a startup based in Amsterdam. We are building an integral software delivery platform in the cloud. At wercker I mainly write Javascript, Python, Go and Bash Script. Next to writing code I'm responsible for community engagement.
 Previously I was a thought leader at [atos](http://atos.net/), one of worlds leading international information technology services companies. I received the Atos TRP award which made me a [distinguished member of technical staff](http://en.wikipedia.org/wiki/Member_of_technical_staff).
 
 Next to the employment I play an active role in the software development community. I've presented at conferences like Microsoft TechDays, Software Development Conference and NDC. Beside speaking I'm also a frequent visitor of smaller meetups. I'm a board member at [Devnology](http://devnology.nl) where I help to organise meetings and run a [software development podcast](http://devnology.nl/en/podcast). My active role in the community is recognised by Microsoft who awarded me with the exclusive [Microsoft MVP](http://mvp.microsoft.com/en-US/default.aspx) award.
 
-As any good developer would I'm also active in the open source community. I've contributed to various open source projects like, [Bundler](http://gembundler.com/), [ncqrs](http://github.com/ncqrs/ncqrs), [node-auth](https://github.com/ciaranj/node-oauth), [ssh-keygen](https://github.com/ericvicenti/ssh-keygen), [EventStore](https://github.com/joliver/EventStore) and [many more](https://github.com/pjvds). As you can see at my [Github profile](https://github.com/pjvds) the  contributions I make are diverse. I do not focus on a single programming language nor platform. I count [C#](http://msdn.microsoft.com/en-us/library/aa287558.aspx) as one of worlds most beautiful programming languages, but you also find me writing [Javascript](https://developer.mozilla.org/en-US/docs/JavaScript), [Python](http://www.python.org/), [Ruby](http://www.ruby-lang.org/) [Smalltalk](http://smalltalk.org) and [Go](http://golang.org/).
+I'm also active in the software development community. I've contributed to various open source projects like, [Bundler](http://gembundler.com/), [ncqrs](http://github.com/ncqrs/ncqrs), [node-auth](https://github.com/ciaranj/node-oauth), [ssh-keygen](https://github.com/ericvicenti/ssh-keygen), [Neo4jClient](https://bitbucket.org/Readify/neo4jclient), [EventStore](https://github.com/joliver/EventStore) and [many more](https://github.com/pjvds). As you can see at my [Github profile](https://github.com/pjvds) the  contributions are not bound to a specific programming language. I like to explore different languages and paradigms. I count [C#](http://msdn.microsoft.com/en-us/library/aa287558.aspx) as one of worlds most beautiful programming languages, but you also find me writing [Javascript](https://developer.mozilla.org/en-US/docs/JavaScript), [Python](http://www.python.org/), [Ruby](http://www.ruby-lang.org/) [Smalltalk](http://smalltalk.org) and [Go](http://golang.org/).
 
-To clear my head and recharge my batteries I run. I prefer the trails and when the surface allows it [barefoot](http://barefootrunning.com/). Otherwise, I run in [Luna Sandals](https://www.lunasandals.com/).
+To clear my head and recharge my batteries I run. I prefer the trails and when the surface allows I run [barefoot](http://barefootrunning.com/). If not, I run in [Luna Sandals](https://www.lunasandals.com/).
 
 ## Contact
 
