@@ -10,20 +10,28 @@ I'm a big fan of [Mou](http://mouapp.com). However I find that I almost always w
 ## Using an alias
 Add the following line to your `.zshrc`, `.bashrc` or `.profile` file.
 
-	alias mou="open -a Mou.app"
+{% highlight bash %}
+alias mou="open -a Mou.app"
+{% endhighlight %}
 
 ## Using a script file
 Create a file names `mou` in your `/usr/local/bin` (or any other path that is exported in `$PATH`) with the following content:
 
-	#! /bin/sh
-	open -a Mou.app "$@"
+{% highlight bash %}
+#! /bin/sh
+open -a Mou.app "$@"
+{% endhighlight %}
 
 After the file is created add execution rights via:
 
-	chmod +x /usr/local/bin/mou
+{% highlight bash session %}
+chmod +x /usr/local/bin/mou
+{% endhighlight %}
 
 ## Open it
 
 Now you can just do:
 
-	mou [file.md]
+{% highlight bash session %}
+mou [file.md]
+{% endhighlight %}
