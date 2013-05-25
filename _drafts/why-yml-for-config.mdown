@@ -1,8 +1,72 @@
 ---
 layout: post
-title: "Why we picked yml instead of json for config"
+title: "yml vs json for config"
 categories: [programming]
 keywords: [yml, config, json]
 ---
 
-* [String are WYSIWYG](http://yaml.org/spec/1.2/spec.html#id2760844)
+At [wercker](http://wercker.com) we had a though decision to make; continue using json as a configuration format or switch to yaml. In this post I would like to share why we picked yaml.
+
+## Wercker.yml
+Before we look at various situation it is good to know what the wercker.yml is used for.  It is In this file users can configure various things, like:
+
+1. In which box there build and deployment pipeline run (e.g.: ruby, nodejs, custom)
+2. How the build and deployment pipeline looks like.
+3. Container for small settings.
+
+## Simple settings
+
+Flags and simple values play an important role in config files.
+
+### Yaml
+
+name: Pieter Joot van de Sande
+url: http://born2code.net
+email: pj@born2code.net
+
+### Json
+
+{
+  name: 'Pieter Joot van de Sande',
+  url: 'http://born2code.net',
+  email: 'pj@born2code.net'
+}
+
+## String format
+
+Linebreak in strings and other format characters can be very important. Especially for steps in the build or deployment pipeline. Two steps that are frequently used by our users are the `script` and `create-file` step. In both steps users can use a multiline string. Here is an example of the `create-file` step in both formats.
+
+#### Yaml
+
+{% highlight yaml %}
+create-file:
+    name: generate production robots.txt
+    overwrite: true
+    filename: robots.txt
+    content: |-
+        User-agent: *
+        Allow: /
+        Sitemap: http://born2code.net/sitemap.xml
+{% endhighlight %}
+
+#### Json
+
+{% highlight json %}
+{ 'create-file':
+  {
+    name: 'generate production robots.txt',
+    overwrite: true,
+    filename: 'robots.txt',
+    content: 'User-agent: *\nAllow: /\nSitemap: http://born2code.net/sitemap.xml'
+  }
+}
+{% endhighlight %}
+
+In yaml string are what you see is where you get. This is useful if you want to
+
+
+In yaml [string are WYSIWYG](http://yaml.org/spec/1.2/spec.html#id2760844)
+
+
+## Funny fact
+In 2009 the third revision of the [YAML 1.2 specs](http://yaml.org/spec/1.2/spec.html) had the primary objective to bring YAML into compliance with JSON as an official subset. This means in theory we support both formats by switching to JSON.
