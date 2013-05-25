@@ -11,11 +11,11 @@ We usually associate a *automated deployment pipeline* as a solution to lower th
 
 ## Static website generators
 
-A static site generator is a program that generates an HTML website as an output, mostly based on simple content like [markdown](http://daringfireball.net/projects/markdown/) or [textile](http://textile.sitemonks.com/). With many [blogger moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) which was build with the static site generator Jekyll, people are now accepting them as an alternative to dynamicly generated websites. Especially when security, performance and hosting simplicity are important.
+A static site generator is a program that generates an HTML website as an output, mostly based on simple content like [markdown](http://daringfireball.net/projects/markdown/) or [textile](http://textile.sitemonks.com/). With many [blogger moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/), people are now accepting them as an alternative to dynamicly generated websites. Especially when security, performance and hosting simplicity are important.
 
 ## Generation and publishing
 
-Although static site generators introduce a lot of goodness, they come with a price. Everytime the content changes, you need to regenerate the site. This regeneration must be done with a machine that has the static site generator software installed. For Jekyll this means you need to have [Ruby](http://www.ruby-lang.org/) installed. This means you can't just finish an article on your tablet or fix a type from your cell phone.
+Although static site generators introduce a lot of goodness, they come with a price. Everytime the content changes, you need to regenerate the site. This regeneration must be done with a machine that has the static site generator software installed. For Jekyll this means you need to have [Ruby](http://www.ruby-lang.org/) and [Jekyll](http://jekyllrb.com) installed. Although this may not be a problem for your development machine, it will held you from finishing an article on your tablet or fixing a typo from your cell phone.
 
 ## Wercker to the rescue!
 
