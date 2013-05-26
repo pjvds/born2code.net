@@ -102,7 +102,7 @@ deploy:
         source: _site/
 {% endhighlight %}
 
-The `s3sync` step synchronises a source directory with an Amazon S3 bucket. The `key_id`, `key_secret` and `bucket_url` options are set to the information from the deploy target created in the previous step. Only the `source` option is _hard coded_ (or should I say _hard configure_?) to `_site/`. This is the directory where jekyll stores the output.
+The `s3sync` step synchronises a source directory with an Amazon S3 bucket. The `key_id`, `key_secret` and `bucket_url` options are set to the information from the deploy target created informationevious step. Only the `source` option is _hard coded_ (or should I say _hard configured_?) to `_site/`. This is the directory where jekyll stores the output.
 
 We could also _hard code_ the key and key secret in here, but that is not something you want to put in your git repository. Especially not when you repository is public like [mine](https://github.com/pjvds/born2code.net).
 
