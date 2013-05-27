@@ -6,9 +6,9 @@ tag: [wercker, jekyll, continuous deployment]
 keywords: [wercker, jekyll, continuous deployment, Amazone S3]
 ---
 
-With many [blogger moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) people are accepting static site generators as a serious alternative. Especially when security and performance are important.
+With many [bloggers moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) people are accepting static site generators as a serious alternative. Especially when security and performance is important.
 
-Beside all the goodness static site generators offer, they come with a price. You need to regenerate the site every time the content changes. This must be done by a machine that has the static site generator software installed. For Jekyll this means [Ruby](http://www.ruby-lang.org/) and [Jekyll](http://jekyllrb.com). Although this may not be a problem for your development machine, it will held you from finishing an article on your tablet or fixing a typo from your cell phone.
+Beside all the goodness that static site generators offer, they come with a price. You need to regenerate the site every time the content changes. This must be done by a machine that has the static site generator software installed. Although this may not be a problem when you are at the office, it will hold you from finishing an article on your tablet or fixing a typo from your cell phone.
 
 ## Wercker to the rescue!
 
@@ -23,18 +23,20 @@ Wercker is a content continuous delivery platform in the cloud. You can leverage
 
 ## Add your application to wercker
 
-First add your application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button.
+First you need to add application to wercker. [Sign in](http://app.wercker.com/) at wercker and click the big blue `add an application` button.
 
 ![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/welcome-to-wercker.png' | asset_url }})
 
 Follow the steps that and make sure you give the `werckerbot` user read rights on your repository at Github or Bitbucket.
 
-When everything succeeded, the following screen appears.
+At the end of the process the following screen appears.
 
 ![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/thank-you-for-adding-a-new-project.png' | asset_url }})
 
 ## Creating the wercker.yml
-It is time to define your build process. Create a new file called `wercker.yml` in the root of your repository with the following content:
+Now it is time to define your build process. This is the process that will get executed everytime changes are pushed to the git repository.
+
+Create a new file called `wercker.yml` in the root of your repository with the following content:
 
 {% highlight yaml %}
 # define we want to run our build in a ruby box
@@ -53,12 +55,12 @@ build:
         code: bundler exec jekyll build --trace
 {% endhighlight %}
 
-The first line contains `box: wercker/ruby` which specifies that we want to run our build in a ruby box.
-The second line defines the `build` section which consists of two steps that we want preform when we build the application. In first step `bundle-install` is a smart version of the `bundle install` which uses caching so future build will execute faster. The second step `script` executes the script we define in `code` which hold just a single command `bundler exec jekyll build`.
+This is what you defined in the wercher.yml file. The first line contains `box: wercker/ruby` which defines that you want to run the build in a ruby box.
+The second line defines the `build` section that consists of steps, in this case two. These steps are performed during the execution of the build. The first step `bundle-install` is a smart version of the `bundle install` command that uses caching so future build will execute faster. The second step `script` executes the script that is defined the `code` option that consists of a single command `bundler exec jekyll build --trace`.
 
 ## Add wercker.yml to your repository
 
-After you created the `wercker.yml` add it to your repository.
+After you created the `wercker.yml` add it to your repository by executing the following commands.
 
 {% highlight bash %}
 git add wercker.yml
@@ -66,26 +68,26 @@ git commit -m 'Add wercker.yml'
 git push origin master
 {% endhighlight %}
 
-Because you have created an application for this repository on wercker it should now start building.
+Because you have created an application for this repository at wercker it should now start building. Open the application page at wercker to see the following result.
 
 ![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/first-build.png' | asset_url }})
 
-Congratulations, you first green build at wercker! If you send me a screenshot I will make sure you receive a sticker to celebrate.
+Congratulations, you first green build at wercker! If you [tweet me](http://twitter.com/pjvds) or e-mail [pj@born2code.net](mailto:pj@born2code.net) a screenshot I will make sure you receive a sticker to celebrate.
 
 ## Add deployment target information
-Now you have automated your content generation process. Every time you push your code to git wercker will start this process. This is helpful to catch jekyll errors early, but without a deployment it doesn't help your live website.
+Now you have automated your content generation process that will get executed every time you push your code to git. This is helpful to catch jekyll errors early, but without a deployment it doesn't help your live website. Let's add a deploy target to you wercker application so we can close the loop.
 
 Goto your application at [app.wercker.com](https://app.wercker.com) and click on the settings tab.
 
 ![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/add-custom-deploy.png' | asset_url }})
 
-A new form opens that where you can enter the information that is passed to the deployment. Here you enter the details of our Amazon S3 bucket. The key and secret key can be found in the [AWS security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials) page.
+A new form opens that you can use to enter information that is passed to the deployment context. Here you enter the details of our Amazon S3 bucket. The key and secret key can be found in the [AWS security credentials](https://portal.aws.amazon.com/gp/aws/securityCredentials) page.
 
 ![image]({{ 'simplify-your-jekyll-publishing-process-with-wercker/deploy-details.png' | asset_url }})
 
 _note: this aren't my real keys… duh!_
 
-When you are hosting on another platform, you could use this to enter the FTP details.
+When you are hosting on another platform, you could use this to enter the FTP or other details.
 
 ## Add deployment steps
 The current `wercker.yml` file contains the steps that are executed when the application is build. Now you want to add steps that are executed when the application is deployed. The steps is executed in a context that hold the information you have entered in the previous step; key, secret and s3 url.
