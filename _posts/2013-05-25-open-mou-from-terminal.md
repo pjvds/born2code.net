@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Open Mou from terminal"
-categories: [programming], [tips]
+categories: [programming]
 keywords: [mou, mouapp, terminal, open, commandline]
 ---
 
