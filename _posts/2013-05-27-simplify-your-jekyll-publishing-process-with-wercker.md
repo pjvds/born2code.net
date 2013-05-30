@@ -6,6 +6,8 @@ tag: [wercker, jekyll, continuous deployment]
 keywords: [wercker, jekyll, continuous deployment, Amazone S3]
 ---
 
+NIEUWE TEXT
+
 With many [bloggers moving to static site generators](https://www.google.nl/search?q=popular+bloggers+moving+to+jekyll) and success stories like [Obama's $250 million fundraising platform](http://kylerush.net/blog/meet-the-obama-campaigns-250-million-fundraising-platform/) people are accepting static site generators as a serious alternative. Especially when security and performance is important.
 
 Beside all the goodness that static site generators offer, they come with a price. You need to regenerate the site every time the content changes. This must be done by a machine that has the static site generator software installed. Although this may not be a problem when you are at the office, it will hold you from finishing an article on your tablet or fixing a typo from your cell phone.
