@@ -54,11 +54,11 @@ build:
     # that build the jekyll site
     - script:
         name: generate site
-        code: bundler exec jekyll build --trace
+        code: bundle exec jekyll build --trace
 {% endhighlight %}
 
 This is what you defined in the wercher.yml file. The first line contains `box: wercker/ruby` which defines that you want to run the build in a ruby box.
-The second line defines the `build` section that consists of steps, in this case two. These steps are performed during the execution of the build. The first step `bundle-install` is a smart version of the `bundle install` command that uses caching so future build will execute faster. The second step `script` executes the script that is defined the `code` option that consists of a single command `bundler exec jekyll build --trace`.
+The second line defines the `build` section that consists of steps, in this case two. These steps are performed during the execution of the build. The first step `bundle-install` is a smart version of the `bundle install` command that uses caching so future build will execute faster. The second step `script` executes the script that is defined the `code` option that consists of a single command `bundle exec jekyll build --trace`.
 
 ## Add wercker.yml to your repository
 
