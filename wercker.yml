@@ -9,7 +9,8 @@ build:
         name: generate staging site
         code: bundle exec jekyll build --draft --trace --destination ./_staging
     - create-file:
-        filename: robots.txt
+        name: generate staging robots.txt
+        filename: ./_staging/robots.txt
         content: |-
             User-agent: *
             Disallow: /
@@ -18,8 +19,7 @@ build:
         code: bundle exec jekyll build --trace --destination ./_production
     - create-file:
         name: generate production robots.txt
-        overwrite: true
-        filename: robots.txt
+        filename: ./_production/robots.txt
         content: |-
             User-agent: *
             Allow: /
