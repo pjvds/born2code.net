@@ -12,7 +12,7 @@ build:
         name: generate staging site
         code: |-
             bundle exec jekyll build --draft --trace --destination ./_staging
-            ls -l ./staging
+            ls -l ./_staging
     - create-file:
         name: generate staging robots.txt
         filename: ./_staging/robots.txt
