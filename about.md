@@ -26,6 +26,8 @@ The reason this website looks awesome is [David Ensinger](http://davidensinger.c
 
 The site is generated with [Jekyll](http://jekyllrb.com/) and hosted on [Amazone S3](http://aws.amazon.com/s3/). The process to generation and deployment is automated with [wercker](https://app.wercker.com/project/bykey/c38587366b136b180eb7108c9c250cdc).
 
+The DNS for [born2code.net](http://born2code.net) is served by [Amazon Route 53](http://aws.amazon.com/route53/‎), Amazon's high available and scalable domain name system. This allows me to host this blog at a naked domain (a domain without www).
+
 The source code is hosted at [github](http://github.com) in the repository [pjvds/born2code](http://github.com/pjvds/born2code). You are free to fork or steel anything you find useful.
 
 A number of supporting plugins and code snippets for Jekyll are used with the site:
