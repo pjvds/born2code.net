@@ -17,6 +17,7 @@ build:
         name: generate staging robots.txt
         filename: ./_staging/robots.txt
         content: |-
+            # This is a staging site, do not index!
             User-agent: *
             Disallow: /
     - script:
