@@ -17,7 +17,8 @@ build:
         name: generate staging robots.txt
         filename: ./_staging/robots.txt
         content: |-
-            # This is a staging site, do not index!
+            # Go away! This is a staging version
+            # of born2code.net, no need to index it.
             User-agent: *
             Disallow: /
     - script:
