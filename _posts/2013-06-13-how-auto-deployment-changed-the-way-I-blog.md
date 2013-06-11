@@ -5,13 +5,13 @@ categories: [programming]
 keywords: [auto deploy, wercker, continuous integration]
 ---
 
-In a [previous blogpost](/blog/2013/05/27/simplify-your-jekyll-publishing-process-with-wercker/) I described how I leveraged [wercker](https://app.wercker.com/project/bykey/c38587366b136b180eb7108c9c250cdc) to automate the publishing and deployment process for this jekyll blog. Since then I have fixed typo's from my iPhone, used [Prose](http://prose.io/) for editing and introduced a staging area for my blog. The staging area helps me to review my posts in their final form, before I promote them production. You can expect a blogpost with the details somewhere soonish. In this post I want to share that [wercker introduced auto-deploy](http://blog.wercker.com/2013/06/05/Autodeployment.html) and how enabling this feature changed the way I blog.
+In a [previous blogpost](/blog/2013/05/27/simplify-your-jekyll-publishing-process-with-wercker/) I described how I leverage [wercker](https://app.wercker.com/project/bykey/c38587366b136b180eb7108c9c250cdc) to automate the publishing and deployment process for this jekyll blog. Since then I have fixed typo's from my iPhone, used [Prose](http://prose.io/) for editing and introduced a staging area for my blog. The staging area helps me to review my posts in their final form, before I promote them production. You can expect a blogpost with the details somewhere soonish. In this post I want to share that [wercker introduced auto-deploy](http://blog.wercker.com/2013/06/05/Autodeployment.html) and how enabling this feature changed the way I blog.
 
 ## Auto deployment
 
 Auto deployment allows you to flow your changes to production. It stimulates to break work into smaller predictable changes and therefor limits the risk of deployment. Before a change set flows to production it gets challenged by an automated build. The goals of the build is not only to transform the source code to a deployable form, but also to challenge its quality. This process allows teams to be more agile and it makes them more aware to spend time on the quality checks in the build.
 
-## Enabled it for my blog
+## Enabling auto deploy on wercker
 
 A blog is a safe way to experiment with auto deployment. So I decided to enable it for both of my deployment targets, staging and production. Here is how my production deployment target looks like at wercker:
 
