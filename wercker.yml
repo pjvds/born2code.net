@@ -2,45 +2,37 @@ box: wercker/ruby
 build:
   steps:
     - bundle-install
-    - category:
-        name: pre-build
-        steps:
-            - script:
-                name: jekyll doctor
-                code: bundle exec jekyll doctor
-            - script:
-                name: sass compile
-                code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
-            # - script:
-            #     name: generate staging site
-            #     code: |-
-            #         bundle exec jekyll build --draft --trace --destination ./_staging
-            #         ls -l ./_staging
-            - script:
-                name: generate staging site
-                code: |-
-                    bundle exec jekyll build --trace --destination ./_staging
-                    ls -l ./_staging
-            - create-file:
-                name: generate staging robots.txt
-                filename: ./_staging/robots.txt
-                content: |-
-                    # Go away! This is a staging version
-                    # of born2code.net, no need to index it.
-                    User-agent: *
-                    Disallow: /
-            - script:
-                name: generate production site
-                code: |-
-                    bundle exec jekyll build --trace --destination ./_production
-                    ls -l ./_production
-            - create-file:
-                name: generate production robots.txt
-                filename: ./_production/robots.txt
-                content: |-
-                    User-agent: *
-                    Allow: /
-                    Sitemap: http://born2code.net/sitemap.xml
+    - script:
+        name: jekyll doctor
+        code: bundle exec jekyll doctor
+    - script:
+        name: sass compile
+        code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
+    - script:
+        name: generate staging site
+        code: |-
+          bundle exec jekyll build --trace --destination ./_staging
+          ls -l ./_staging
+    - create-file:
+        name: generate staging robots.txt
+        filename: ./_staging/robots.txt
+        content: |-
+          # Go away! This is a staging version
+          # of born2code.net, no need to index it.
+          User-agent: *
+          Disallow: /
+    - script:
+        name: generate production site
+        code: |-
+          bundle exec jekyll build --trace --destination ./_production
+          ls -l ./_production
+    - create-file:
+        name: generate production robots.txt
+        filename: ./_production/robots.txt
+        content: |-
+          User-agent: *
+          Allow: /
+          Sitemap: http://born2code.net/sitemap.xml
 deploy :
   steps :
     - s3sync:
