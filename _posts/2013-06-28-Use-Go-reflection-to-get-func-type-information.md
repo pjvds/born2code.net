@@ -25,8 +25,8 @@ func main() {
   mType := reflect.TypeOf(m)
 
   fmt.Printf("name: %v\n", mType.Name())
-  fmt.Printf("in args: %v\n", mType.NumIn())
-  fmt.Printf("out args: %v\n", mType.NumOut())
+  fmt.Printf("number of in args: %v\n", mType.NumIn())
+  fmt.Printf("number of out args: %v\n", mType.NumOut())
   fmt.Printf("in arg 1 type: %v\n", mType.In(0).Name())
   fmt.Printf("in arg 2 type: %v\n", mType.In(1).Name())
   fmt.Printf("out arg 1 type: %v\n", mType.Out(0).Name())
@@ -39,11 +39,10 @@ func Multipli(x int, y int) int {
 
 ## Prints
 
-{% highlight terminal %}
-name: Multiplier
-in args: 2
-out args: 1
-in arg 1 type: int
-in arg 2 type: int
-out arg 1 type: int
-{% endhighlight %}
+    $ go run method.go
+    name: Multiplier
+    number of in args: 2
+    number of out args: 1
+    in arg 1 type: int
+    in arg 2 type: int
+    out arg 1 type: int
