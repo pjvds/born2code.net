@@ -2,11 +2,14 @@
 layout: post
 title: "Use Go reflection to get func type information"
 categories: [programming]
-keywords: [golang, reflection, snippet]
+keywords: [golang, reflection, snippet, go]
 ---
 
 Here is a small code snipped that demonstrates how to get type information
-from a `func` in [Go](http://golang.org).
+from a `func` type in [Go](http://golang.org "Go's homepage"). I prints the
+information to the console. More information about reflection can be found at
+the great Go docs article [The Laws of Reflection](http://golang.org/doc/articles/laws_of_reflection.html).
+
 
 ## Code
 
