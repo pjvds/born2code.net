@@ -12,27 +12,13 @@ allow you to create any suites with tear ups and tear downs. Stuff I usually
 use for integration tests. So I started using [Gocheck](http://labix.org/gocheck)
 today and I must say that I am in love! It has one of the best Go API's I've
 seen so far (ok, it shares the first place with the [Gorilla Web Toolkit](http://www.gorillatoolkit.org/)).
+Here are some examples of the features I enjoy!
 
-Let this code example speak for itself:
+## Test suites
+
+Bundle your tests and add state to them.
 
 {% highlight go %}
-package main
-
-import (
-  "encoding/json"
-  "io/ioutil"
-  . "launchpad.net/gocheck"
-  "net/http"
-  "os"
-  "testing"
-  "time"
-)
-
-// Hook up gocheck into the "go test" runner.
-func Test(t *testing.T) {
-  TestingT(t)
-}
-
 // Setup the test suite
 var _ = Suite(&ApiIntegrationTestSuite{
   ProcessFilename: "httpcallback.io",
@@ -43,7 +29,12 @@ type ApiIntegrationTestSuite struct {
   ProcessFilename string
   process         *os.Process
 }
+{% endhighlight %}
 
+
+## Test suites with set up and tear down
+
+{% highlight go %}
 // Runs before the test suite starts
 func (s *ApiIntegrationTestSuite) SetUpSuite(c *C) {
   var procAttr os.ProcAttr
@@ -68,7 +59,25 @@ func (s *ApiIntegrationTestSuite) TearDownSuite(c *C) {
     c.Logf("Unable to kill %s: %s", s.ProcessFilename, err.Error())
   }
 }
+{% endhighlight %}
 
+## Tests come with set up and tear down
+// Runs before the test starts
+func (s *ApiIntegrationTestSuite) SetUpTest(c *C) {
+  s.ResetDataContext()
+}
+
+// Runs after the test finished, even when failed
+func (s *ApiIntegrationTestSuite) TearDownTest(c *C) {
+  s.Flush()
+}
+
+## Assert API
+
+No more `if err != nil`'s in your Go test code, but a decent
+assert API.
+
+{% highlight go %}
 func (s *ApiIntegrationTestSuite) TestPing(c *C) {
   response, err := http.Get("http://api.localhost:8000/ping")
   c.Assert(err, IsNil)
@@ -79,20 +88,36 @@ func (s *ApiIntegrationTestSuite) TestPing(c *C) {
 
   c.Assert(doc["message"], Equals, "pong")
 }
+{% endhighlight %}
 
-func GetBodyAsDocument(c *C, response *http.Response) (map[string]interface{}, error) {
-  var document map[string]interface{}
-  data, err := ioutil.ReadAll(response.Body)
-  if err != nil {
-    return document, err
+## Skipping tests
+
+{% highlight go %}
+var aws = flag.Bool("aws", false, "Include aws tests")
+
+func (s *ApiIntegrationTestSuite) TestAwsProvisioning(c *C) {
+  if *aws {
+    c.Skip("-aws not provided")
   }
+}
+{% endhighlight %}
 
-  err = json.Unmarshal(data, &document)
-  if err != nil {
-    c.Logf("RAW Json: %s", string(data))
+## Support benchmark tests
+
+{% highlight go %}
+func (s *ApiIntegrationTestSuite) BenchmarkPing(c *C) {
+  // c.N contains the number of times to repeat
+  // the benchmark test. This number is dynamicly
+  // set by the Go test runner.
+  for i := 0; i < c.N; i++ {
+    response, err := http.Get("http://api.localhost:8000/ping")
+
+    if err != nil {
+      c.Fatalf("Error while getting response: %v", err.Error())
+    } else {
+      response.Body.Close()
+    }
   }
-
-  return document, err
 }
 {% endhighlight %}
 
