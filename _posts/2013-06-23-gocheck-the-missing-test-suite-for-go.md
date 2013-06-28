@@ -62,6 +62,8 @@ func (s *ApiIntegrationTestSuite) TearDownSuite(c *C) {
 {% endhighlight %}
 
 ## Tests come with set up and tear down
+
+{% highlight go %}
 // Runs before the test starts
 func (s *ApiIntegrationTestSuite) SetUpTest(c *C) {
   s.ResetDataContext()
@@ -71,6 +73,7 @@ func (s *ApiIntegrationTestSuite) SetUpTest(c *C) {
 func (s *ApiIntegrationTestSuite) TearDownTest(c *C) {
   s.Flush()
 }
+{% endhighlight %}
 
 ## Assert API
 
