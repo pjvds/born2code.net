@@ -16,7 +16,7 @@ Wercker offers two endpoints per project that serve status information in the **
 
 The feed url that contains the build status from an project is:
 
-  https://app.wercker.com/api/v2/applications/{PROJECT-ID}/cc/build
+    https://app.wercker.com/api/v2/applications/{PROJECT-ID}/cc/build
 
 You need to replace `{PROJECT-ID}` with the project id of the project you want to monitor.
 
@@ -24,7 +24,7 @@ You need to replace `{PROJECT-ID}` with the project id of the project you want t
 
 The feed url that contains the deployment status of a project's deploy target is:
 
-  https://app.wercker.com/api/v2/applications/{PROJECT-ID}/cc/deploytargets/{DEPLOY-TARGET-NAME}
+    https://app.wercker.com/api/v2/applications/{PROJECT-ID}/cc/deploytargets/{DEPLOY-TARGET-NAME}
 
 You need to replace `{PROJECT-ID}` with the project id of the project you want to monitor and `{DEPLOY-TARGET-NAME}` with the name of the deploy target. Read more about deploy targets on ou [dev center](http://devcenter.wercker.com/articles/introduction/deploys.html#deploy-targets)
 
