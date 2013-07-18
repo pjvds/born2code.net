@@ -1,7 +1,11 @@
 box: wercker/ruby
 build:
   steps:
+    # Install dependencies
     - bundle-install
+    
+    # Execute jeykyll doctor command to validate the 
+    # site against a list of known issues.
     - script:
         name: jekyll doctor
         code: bundle exec jekyll doctor
