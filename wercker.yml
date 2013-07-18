@@ -12,6 +12,8 @@ build:
     - script:
         name: sass compile
         code: bundle exec sass --style compressed assets/scss/styles.scss:assets/css/styles.min.css --debug-info
+    
+    # Generate staging, no drafts in here
     - script:
         name: generate staging site
         code: |-
