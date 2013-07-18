@@ -19,6 +19,7 @@ build:
         code: |-
           bundle exec jekyll build --trace --destination ./_staging
           ls -l ./_staging
+    # Do not allow indexing on staging
     - create-file:
         name: generate staging robots.txt
         filename: ./_staging/robots.txt
