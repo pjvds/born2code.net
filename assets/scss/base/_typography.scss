@@ -263,7 +263,7 @@ blockquote {
         color: $white; } } } }
 
 address {
-  @extend %margin-bottom; } 
+  @extend %margin-bottom; }
 
 abbr,
 acronym {
@@ -279,7 +279,7 @@ ins {
 
 pre {
   @extend %gray-box;
-  overflow: auto;
+  overflow: hidden;
   max-width: 100%;
   code {
     padding: 0; } }
@@ -292,7 +292,7 @@ var {
   @include rem(border-radius, 0.5);
   background: $white-dark;
   color: $gray-dark;
-  font-weight: $base-font-weight; } 
+  font-weight: $base-font-weight; }
 
 strike,
 s,
