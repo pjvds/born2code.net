@@ -279,7 +279,7 @@ ins {
 
 pre {
   @extend %gray-box;
-  overflow: hidden;
+  overflow-y: scroll;
   max-width: 100%;
   code {
     padding: 0; } }
