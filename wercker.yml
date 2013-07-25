@@ -54,7 +54,6 @@ deploy :
         name: Deploy to github pages
         code: |-
           git init
-          git remote add origin $GIT_REMOTE
           git add .
           git commit -m "deploy commit from $WERCKER_STARTED_BY"
-          git push origin gh-pages -f
+          git push -f $GIT_REMOTE gh-pages
