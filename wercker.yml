@@ -42,8 +42,11 @@ build:
           Sitemap: http://born2code.net/sitemap.xml
 deploy :
   steps :
-    - s3sync:
-        key-id: $KEY
-        key-secret: $SECRET
-        bucket-url: $BUCKET
-        source-dir: $SOURCE
+    - script:
+        name: Deploy to github pages
+        code: |-
+          git clone $GIT_REMOTE
+          git checkout --orphan gh-pages
+          git add .
+          git commit -m "deploy commit from $WERCKER_STARTED_BY"
+          git push
