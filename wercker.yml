@@ -47,6 +47,9 @@ deploy :
         code: |-
           git config --global user.email "pleasemailus@wercker.com"
           git config --global user.name "wercker"
+          
+          # remove current .git folder
+          rm -rf .git
     - script:
         name: Deploy to github pages
         code: |-
