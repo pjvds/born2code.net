@@ -53,8 +53,8 @@ deploy :
     - script:
         name: Deploy to github pages
         code: |-
-          git clone $GIT_REMOTE
-          git checkout --orphan gh-pages
+          git init
+          git remote add origin $GIT_REMOTE
           git add .
           git commit -m "deploy commit from $WERCKER_STARTED_BY"
-          git push
+          git push origin gh-pages -f
