@@ -19,25 +19,25 @@ build:
     - script:
         name: generate staging site
         code: |-
-          bundle exec jekyll build --trace --destination ./_staging
-          ls -l ./_staging
-    # Do not allow indexing on staging
+          bundle exec jekyll build --trace
+    - script:
+        name: copy site output
+        code: |-
+          # Copy site to output directory for staging and production
+          mkdir -P "$WERCKER_OUTPUT_DIR/{staging,production}
+          cp --recursive _site/* "$WERCKER_OUTPUT_DIR/staging"
+          cp --recursive _site/* "$WERCKER_OUTPUT_DIR/production"
     - create-file:
         name: generate staging robots.txt
-        filename: ./_staging/robots.txt
+        filename: $WERCKER_OUTPUT_DIR/staging/robots.txt
         content: |-
           # Go away! This is a staging version
           # of born2code.net, no need to index it.
           User-agent: *
           Disallow: /
-    - script:
-        name: generate production site
-        code: |-
-          bundle exec jekyll build --trace --destination ./_production
-          ls -l ./_production
     - create-file:
         name: generate production robots.txt
-        filename: ./_production/robots.txt
+        filename: $WERCKER_OUTPUT_DIR/production/robots.txt
         content: |-
           User-agent: *
           Allow: /
