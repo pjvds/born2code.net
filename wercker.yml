@@ -24,9 +24,11 @@ build:
         name: copy site output
         code: |-
           # Copy site to output directory for staging and production
-          mkdir -P "$WERCKER_OUTPUT_DIR/{staging,production}
-          cp --recursive _site/* "$WERCKER_OUTPUT_DIR/staging"
-          cp --recursive _site/* "$WERCKER_OUTPUT_DIR/production"
+          mkdir "$WERCKER_OUTPUT_DIR/staging"
+          cp --recursive _site/* "$WERCKER_OUTPUT_DIR/staging/"
+
+          mkdir "$WERCKER_OUTPUT_DIR/production"
+          cp --recursive _site/* "$WERCKER_OUTPUT_DIR/production/"
     - create-file:
         name: generate staging robots.txt
         filename: $WERCKER_OUTPUT_DIR/staging/robots.txt
