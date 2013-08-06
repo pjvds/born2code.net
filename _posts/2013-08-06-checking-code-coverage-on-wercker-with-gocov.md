@@ -8,7 +8,7 @@ To measure test coverage in [Go](http://golang.org) we can use [gocov](https://g
 - script:
     name: Test
     code: |-
-      # Get gocov package
+        # Get gocov package
         go get github.com/axw/gocov/gocov
 
         # Execute actual tests and store coverage result
