@@ -1,7 +1,5 @@
 Code coverage can be an important metric to watch. It gives you insight in which parts of your code are covered well by tests and which might need some extra attention. In this post I will explain how I leverage <a href="https://github.com/axw/gocov">gocov</a> in adding test coverage reports to the build pipeline of one of my go projects.
 
-![image](http://f.cl.ly/items/3r151t3Q2a1o0w2K3c3V/52DD0AE7-E6D1-481C-B8AE-7727C180C0CC.jpg)
-
 ## Executing tests with gocov
 
 To measure test coverage in [Go](http://golang.org) we can use [gocov](https://github.com/axw/gocov) created by [Andrew Wilkins](http://awilkins.id.au/). It has a `test` command that executes the test with the default `go test` test runner and generates the coverage details in json format. The `gocov test` command respects the `go test` command and still prints output from it to the console. Here is an example of a script [step](http://devcenter.wercker.com/articles/steps/) that runs the tests for all packages and subpackages of the working directory and writes the coverage results to a file called `coverage.json`:
@@ -58,7 +56,7 @@ github.com/pjvds/go-cqrs/tests/Log.go  InitLogging   100.00% (3/3)
 github.com/pjvds/go-cqrs/tests         -----------   100.00% (3/3)
 {% endhighlight %}
 
-You can see the actual step result on `rcker: [go-cqrs / 6c8cd61 / coverage](https://app.wercker.com/#buildstep/51ffb8a9170dc79a480004e2).
+You can see the actual step result on wercker: [go-cqrs / 6c8cd61 / coverage](https://app.wercker.com/#buildstep/51ffb8a9170dc79a480004e2).
 
 ## Writing to the artifact dir
 
