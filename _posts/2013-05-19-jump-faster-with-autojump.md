@@ -27,7 +27,7 @@ Autojump.txt file will contain both directories.
     10  /Users/pjvds/dev/getting-started-ruby/src
     10  /Users/pjvds/dev/getting-started-python/src
 
-The `10` in front of both lines is the weight of the directories. They now have both the same weight because they are both visited once. Now when one of the directories is visited again the weight will get updated.
+The `10` in front of both lines is the weight of the directories. They both have the same weight because they are both visited once. Now when one of the directories is visited again the weight will get updated.
 
     cd ~/dev/getting-started-python/src
 
