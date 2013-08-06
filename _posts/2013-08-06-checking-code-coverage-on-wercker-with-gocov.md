@@ -62,12 +62,14 @@ You can see the actual step result on wercker: [go-cqrs / 6c8cd61 / coverage](ht
 
 The `coverage.json` can also be used to create a nice self sufficient html report. We can use [gocov-html](https://github.com/matm/gocov-html) tool for this. Here is how I enchanced the previous step and added html reporting that is stored in the `artifact` directory.
 
-    - script:
-        name: Coverage
-        code: |-
-            go get github.com/matm/gocov-html
-            gocov report coverage.json
-            gocov-html coverage.json > $WERCKER_REPORT_ARTIFACTS_DIR/coverage.html
+{% highlight yaml %}
+- script:
+    name: Coverage
+    code: |-
+        go get github.com/matm/gocov-html
+        gocov report coverage.json
+        gocov-html coverage.json > $WERCKER_REPORT_ARTIFACTS_DIR/coverage.html
+{% endhighlight %}
 
 When this step succeeds you can download the artifacts package and open `coverage.html`.
 
