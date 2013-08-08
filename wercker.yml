@@ -52,8 +52,8 @@ build:
           User-agent: *
           Allow: /
           Sitemap: http://born2code.net/sitemap.xml
-deploy :
-  steps :
+deploy:
+  steps:
     - s3sync:
         key-id: $KEY
         key-secret: $SECRET
