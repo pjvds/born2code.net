@@ -9,6 +9,7 @@ build:
     - script:
         name: jekyll doctor
         code: bundle exec jekyll doctor
+
     - script:
         name: sass compile
         code: |-
@@ -20,6 +21,7 @@ build:
         name: generate staging site
         code: |-
           bundle exec jekyll build --trace
+
     - script:
         name: copy site output
         code: |-
@@ -33,6 +35,7 @@ build:
           # Copy post deploy script because it will not be copied automaticly
           # since we write to the wercker output directory.
           cp "post-deploy-tests.sh" "$WERCKER_OUTPUT_DIR/post-deploy-tests.sh"
+
     - create-file:
         name: generate staging robots.txt
         filename: $WERCKER_OUTPUT_DIR/staging/robots.txt
@@ -41,6 +44,7 @@ build:
           # of born2code.net, no need to index it.
           User-agent: *
           Disallow: /
+
     - create-file:
         name: generate production robots.txt
         filename: $WERCKER_OUTPUT_DIR/production/robots.txt
@@ -55,6 +59,7 @@ deploy :
         key-secret: $SECRET
         bucket-url: $BUCKET
         source-dir: $SOURCE
+
     - script:
         name: Execute post deploy tests
-        code: ./post-deploy-tests.sh
+        code: source post-deploy-tests.sh
