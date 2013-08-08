@@ -51,3 +51,8 @@ deploy :
         key-secret: $SECRET
         bucket-url: $BUCKET
         source-dir: $SOURCE
+    - script:
+        name: Check status code
+        code: |-
+          response=$(curl --write-out %{http_code} --silent --output /dev/null "$SITE_URL")
+          if [ $response -ne 200 ]; then echo "Deploy failure: site returned $response, 200 was expected"; exit 1; else echo "Site status code $response is correct"; fi
