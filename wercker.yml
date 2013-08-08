@@ -54,5 +54,10 @@ deploy :
     - script:
         name: Check status code
         code: |-
-          response=$(curl --write-out %{http_code} --silent --output /dev/null "$SITE_URL")
-          if [ $response -ne 200 ]; then fail "Deploy failure: site returned $response, 200 was expected"; else success "Site status code $response is correct"; fi
+          response=$(curl --write-out %{http_code} --silent --output "site-content.html" "$SITE_URL")
+          if [ $response -ne 200 ]; then fail "Deploy failure: site returned $response, 200 was expected"; fi
+
+          title=$(awk -vRS="</title>" '/<title>/{gsub(/.*<title>|\n+/,"");print;exit}' site-content.html)
+          if [ $title != 'born2code.net' ]; then fail "Unexpected title '$title' for $SITE_URL"; fi
+
+          success 'Post deploy tests succeeded'
