@@ -29,6 +29,10 @@ build:
 
           mkdir "$WERCKER_OUTPUT_DIR/production"
           cp --recursive _site/* "$WERCKER_OUTPUT_DIR/production/"
+
+          # Copy post deploy script because it will not be copied automaticly
+          # since we write to the wercker output directory.
+          cp "post-deploy-tests.sh" "$WERCKER_OUTPUT_DIR/post-deploy-tests.sh"
     - create-file:
         name: generate staging robots.txt
         filename: $WERCKER_OUTPUT_DIR/staging/robots.txt
@@ -52,12 +56,5 @@ deploy :
         bucket-url: $BUCKET
         source-dir: $SOURCE
     - script:
-        name: Check status code
-        code: |-
-          response=$(curl --write-out %{http_code} --silent --output "site-content.html" "$SITE_URL")
-          if [ $response -ne 200 ]; then fail "Deploy failure: site returned $response, 200 was expected"; fi
-
-          title=$(awk -vRS="</title>" '/<title>/{gsub(/.*<title>|\n+/,"");print;exit}' site-content.html)
-          if [ $title != 'born2code.net' ]; then fail "Unexpected title '$title' for $SITE_URL"; fi
-
-          success 'Post deploy tests succeeded'
+        name: Execute post deploy tests
+        code: ./post-deploy-tests.sh
