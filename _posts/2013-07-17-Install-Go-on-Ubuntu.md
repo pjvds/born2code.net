@@ -15,7 +15,7 @@ wget https://go.googlecode.com/files/go1.1.1.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go1.1.1.linux-amd64.tar.gz
 rm go1.1.1.linux-amd64.tar.gz
 
-mkdir -p "$HOME/go"{src,pkg,bin}
+mkdir -p "$HOME/go/"{src,pkg,bin}
 echo 'export GOPATH="$HOME/go"' >> "$HOME/.profile"
 
 echo 'export GOROOT="/usr/local/go"' >> "$HOME/.profile"
