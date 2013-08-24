@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Checking code coverage on wercker with gocov"
+categories: [programming]
+keywords: [golang, gocov, testing, tdd, coverage]
+---
+
 Code coverage can be an important metric to watch. It gives you insight in which parts of your code are covered well by tests and which might need some extra attention. In this post I will explain how I leverage <a href="https://github.com/axw/gocov">gocov</a> in adding test coverage reports to the build pipeline of one of my go projects.
 
 ## Executing tests with gocov
