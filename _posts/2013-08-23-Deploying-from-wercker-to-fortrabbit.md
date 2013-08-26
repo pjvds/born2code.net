@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Deploying from wercker to fortrabbit"
+comments: true
+categories: [programming]
+tag: [terminal, wercker, php, fortrabbit]
+---
+
 Today we got a support ticket from a user that wants to deploy his PHP application to [fortrabbit](http://fortrabbit.com/ "fortrabbit homepage"), a PHP as a service provider. To help this customer I decided to create a small sample app and try to deploy it to fortrabbit. This blogpost describes the steps I took. I will give you a short summery right away: It was pretty damn easy!
 
 ## The PHP application
