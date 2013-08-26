@@ -130,3 +130,9 @@ Next I add the two text variables `FORSTRABBIT_GIT_REMOTE` and `FORSTRABBIT_GIT_
 Navigate to your latest build and choose deploy:
 
 ![deploy]({{ 'deploying-from-wercker-to-fortrabbit/deploy.png' | asset_url }})
+
+When the deploy is finish I proudly look at the running version of the application:
+
+![cities running at fortrabbit]({{ 'deploying-from-wercker-to-fortrabbit/cities-running-at-fortrabbit.png' | asset_url }})
+
+Source: [cities.eu1.frbit.net](http://cities.eu1.frbit.net/)
