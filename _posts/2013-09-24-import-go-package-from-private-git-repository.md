@@ -25,13 +25,13 @@ A deploy key is simply a password-less SSH key that grants read-only access to a
 
 Wercker allows you to generate SSH keys for your application, which we can be used as a deploy key. Open your application on wercker and go to the application settings tab. Here you find the _key management_ section. Use the *generate new key pair* button to create a new key.
 
-![create ssh key at wercker](/images/posts/import-go-package-from-private-git-repository/generate-key.png)
+![create ssh key at wercker]({{ 'import-go-package-from-private-git-repository/generate-key.png' | asset_url }})
 
 ## Add variable for key
 
 Before we can use the key in our build pipeline, we need to expose it as a variable. This can be done in the pipeline section of the application settings tab. Press the *add new variable* button, pick the SSH Key pair option and select your key.
 
-![](/images/posts/import-go-package-from-private-git-repository/pipeline-variable.png)
+![pipeline variable]({{ 'import-go-package-from-private-git-repository/pipeline-variable.png' | asset_url }})
 
 This will expose the key as two variables, in my case: `MYPACKAGE_KEY_PUBLIC` and `MYPACKAGE_KEY_PRIVATE`. The first one holds the public part of the key, and the latter the private part.
 
@@ -39,7 +39,7 @@ This will expose the key as two variables, in my case: `MYPACKAGE_KEY_PUBLIC` an
 
 You can copy the public key from the previous step and add this as a deploy key to the private git repository that contains the package. This option can be found in the settings page of your repository at either GitHub or Bitbucket.
 
-![deploy key](/images/posts/import-go-package-from-private-git-repository/deploy-key.png)
+![deploy key]({{ 'import-go-package-from-private-git-repository/deploy-key.png' | asset_url }})
 
 ## Add key to build pipeline
 
