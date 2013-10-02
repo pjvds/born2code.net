@@ -6,6 +6,6 @@ tag: [docker, snippet]
 ---
 Here is a quick snippet to delete all your docker containers:
 
-{% hightlight bash %}
+{% highlight bash %}
 docker rm $(docker ps -a -q)
 {% endhighlight %}
