@@ -5,7 +5,7 @@ categories: [os]
 keywords: [ubuntu]
 ---
 
-I recently switched my main operating system from Mac OSX to Ubuntu with [AwesomeWM](http://awesome.naquadah.org/), a [tailing window manager](http://en.wikipedia.org/wiki/Tiling_window_manager). I notice a vast improvement in my ability to focus and definitely get into the _zone_ quicker. But it also break my ability to watch video's full screen. Here is how I fixed it.
+I recently switched my main operating system from Mac OSX to Ubuntu with [AwesomeWM](http://awesome.naquadah.org/), a [tailing window manager](http://en.wikipedia.org/wiki/Tiling_window_manager). I notice a vast improvement in my ability to focus and definitely get into _the zone_ quicker. Unfortunately it also broke the ability to watch video's full screen. Here is how I fixed it.
 
 ## The problem
 
