@@ -36,3 +36,5 @@ From now on fullscreen video will just like you would expect it, fullscreen.
 ![awesome fullscreen video]({{ 'awesomewm-and-full-screen-video/awesome-fullscreen.png' | asset_url }})
 
 New instances will be floating fullscreen and get focus. Just press `ESC` to exit them.
+
+_ps: The video is: [Everything I Know About Fast Databases I Learned at the Dog Track](http://vimeo.com/63690418)._
