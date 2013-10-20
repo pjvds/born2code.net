@@ -33,6 +33,6 @@ Press `modkey+control+r` to restart awesome, or if that doesn't work, just logou
 
 From now on fullscreen video will just like you would expect it, fullscreen.
 
-![awesome fullscreen video]({{ 'awesomewm-and-full-screen-video/awesome-fullscreen.png'}})
+![awesome fullscreen video]({{ 'awesomewm-and-full-screen-video/awesome-fullscreen.png' | asset_url }})
 
 New instances will be floating fullscreen and get focus. Just press `ESC` to exit them.
