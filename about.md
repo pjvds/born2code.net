@@ -7,7 +7,7 @@ page-class: page-about
 
 Hi, my name is __Pieter Joost van de Sande__ and I’m a __software engineer__ for almost a decade.
 
-I'm currently employed by [wercker](https://wercker.com), a startup based in Amsterdam. We are building an integral software delivery platform in the cloud. At wercker I mainly write Javascript, Python, Go and Bash Script. Next to writing code I'm responsible for community engagement.
+I'm currently employed by [wercker](http://wercker.com), a startup based in Amsterdam. We are building an integral software delivery platform in the cloud. At wercker I mainly write Javascript, Python, Go and Bash Script. Next to writing code I'm responsible for community engagement.
 Previously I was a thought leader at [atos](http://atos.net/), one of worlds leading international information technology services companies. I received the Atos TRP award which made me a [distinguished member of technical staff](http://en.wikipedia.org/wiki/Member_of_technical_staff).
 
 Next to the employment I play an active role in the software development community. I've presented at conferences like Microsoft TechDays, Software Development Conference and NDC. Beside speaking I'm also a frequent visitor of smaller meetups. I'm a board member at [Devnology](http://devnology.nl) where I help to organise meetings and run a [software development podcast](http://devnology.nl/en/podcast). My active role in the community is recognised by Microsoft who awarded me with the exclusive [Microsoft MVP](http://mvp.microsoft.com/en-US/default.aspx) award.
