@@ -13,15 +13,15 @@ Here is a screenshot of a setup that I use pretty frequently when I am watching 
 
 ![awesome video setup]({{ 'awesomewm-and-full-screen-video/awesome-video-setup.png' | asset_url }})
 
-A video on the right, a twitter client - especially when watching a live stream, and vim for not taking.
+A video on the right, a twitter client - especially when watching a live stream -, and vim for taking notes.
 
 But this setup breaks in awesomewm as soon as I switch the video to fullscreen.
 
 ![awesome broken fullscreen]({{ 'awesomewm-and-full-screen-video/awesome-broken-fullscreen.png' | asset_url }})
 
-## The fix
+## The solution
 
-The fix is pretty easy. We need to tell awesome how to handle `plugin-container` instances. To do so, add the following rule to your `rc.lua`.
+The fix is pretty easy. We need to tell awesomewm how to handle `plugin-container` instances in a different way. It must not try to arrange them like other windows (the whole idea behind a tiling window manager), but just let it float on top of everything in the size it wants (fullscreen). To do so, add the following rule to your `rc.lua`.
 
 {% highlight lua %}
 { rule = { instance = "plugin-container" },
@@ -29,12 +29,12 @@ The fix is pretty easy. We need to tell awesome how to handle `plugin-container`
                  focus = yes } },
 {% endhighlight %}
 
-Press `modkey+control+r` to restart awesome, or if that doesn't work, just logout and login again.
+After the change your can restart awesomewm by pressing `modkey+control+r`, or if that doesn't work, just logout and login again.
 
-From now on fullscreen video will just like you would expect it, fullscreen.
+From now on fullscreen video will just work like you would expect it to work, fullscreen.
 
 ![awesome fullscreen video]({{ 'awesomewm-and-full-screen-video/awesome-fullscreen.png' | asset_url }})
 
-New instances will be floating fullscreen and get focus. Just press `ESC` to exit them.
+New instances will be floating fullscreen and get focus as they spawn. Just press `ESC` to exit them.
 
 _ps: The video is: [Everything I Know About Fast Databases I Learned at the Dog Track](http://vimeo.com/63690418)._
