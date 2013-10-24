@@ -30,6 +30,12 @@ Where `new-branch` is the name of the branch you want to create and checkout.
 
 Notice the `:` before the branch name. Where `origin` is your remote name and `branch-name` is the name of the remote branch to delete.
 
+## Checkout remote branch
+
+    git fetch origin
+    git checkout -b my-branch origin/my-branch
+
+Where `my-branch` is the branch you want to checkout and `origin` the name of the remote.
 
 ## Delete local branch
 
