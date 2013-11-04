@@ -1,9 +1,6 @@
 ---
 layout: post
-title: "Tuning your biological clock with Redshift"
-description: ""
-category: ""
-tags: []
+title: "Tune your biological clock with Redshift"
 ---
 
 I spend a lot of my time behind a screen, and not all that time is
@@ -15,10 +12,11 @@ I never much of a trouble with my eyes, I recently started using
 ever looked into that bright illuminated screen all the time?
 
 Redshift adjusts the color temperature your screen based on the position of
-the sun. When there is no sum (because it is to early or to late) it tries to match
+the sun. When there is no sun because it is too early or too late it tries to match
 the color temperature of the lamps the room.
 
-One thing that surprised me is that not only it alleviates the strain on my eyes,
+One thing that surprised me when using it for a couple of weeks 
+is that not only it alleviates the strain on my eyes,
 but that the slow transition of color temperature make me more aware of the time of the day.
 When my screen is pretty bright - normal color temperature - I know it is time to
 lunch. I know it is almost time to get ready for my trip to home when everything
