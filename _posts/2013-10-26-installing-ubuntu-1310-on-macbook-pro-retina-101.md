@@ -4,6 +4,7 @@ title: "Installing Ubuntu 13.10 on MacBook Pro Retina (10,1)"
 description: ""
 category: ""
 tags: []
+published:false
 ---
 
 I've using Ubuntu 13.10 on my MacBook Pro for a couple of weeks now, and things have been working great so far. It is definitely an major improvement, especially because I totally fell in love with the taling window manager Awesome and finally found a way to minimize my mouse/trackpad usage to the absolute minimum. In this post I want to document my configuration, of others and my future self.
