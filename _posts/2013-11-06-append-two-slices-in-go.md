@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Append two slices in Go"
-description: ""
-category: ""
-tags: []
+tags: [golang]
 ---
 
 [Go]("http://golang.org") ships with a buildin function `append` that can append
