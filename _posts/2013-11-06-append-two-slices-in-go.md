@@ -9,7 +9,7 @@ tags: []
 [Go]("http://golang.org") ships with a buildin function `append` that can append
 elements to the end of a slice and returns the updated slice. Here is an example:
 
-{% hightlight go %}
+{% highlight go %}
 data := []int{ 1,2,3 }
 data = append(data, 4)
 
@@ -18,9 +18,9 @@ fmt.Println(data)
 
 This will print the following:
 
-{% hightlight %}
+{% highlight bash %}
 [1 2 3 4]
-{% hightlight %}
+{% endhighlight %}
 
 Now I was browsing to some Go code and found something like this:
 
@@ -31,7 +31,7 @@ next := []int{ 4,5,6 }
 for _ , v := range next {
     data = append(data, v)
 }
-{% endhighlight %}
+{% endhighlight bash %}
 
 This is not a very good way to append a slice to another slice. Actually
 it is bad and here is why. The append function appends elements to
@@ -47,7 +47,7 @@ is to prevent unnecessary allocations.
 An easy way to fix this is to pass all the data that needs to be appended at once.
 This way the runtime has all the information needed to grow only once, if needed.
 
-{% highlight %}
+{% highlight go %}
 data := []int{ 1,2,3 }
 next := []int{ 4,5,6 }
 
