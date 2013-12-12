@@ -1,4 +1,5 @@
 box: wercker/ruby
+command-timeout: 1
 build:
   steps:
     # Install dependencies
