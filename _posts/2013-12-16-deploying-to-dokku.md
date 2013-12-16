@@ -1,8 +1,6 @@
 ---
 layout: post
 title: "Deploying to Dokku"
-description: ""
-category: ""
 tags: [docker, dokku]
 ---
 
