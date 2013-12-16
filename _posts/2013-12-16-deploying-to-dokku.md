@@ -6,7 +6,7 @@ category: ""
 tags: [docker, dokku]
 ---
 
-[Jeff Lindsay] created [Dokku](https://github.com/progrium/dokku), the smallest PaaS implementation you've even seen. It is powered by Docker and written in less than 100 lines of Bash code. I wanted to play with even since it was released. This weekend I finally did and successfully deployed my application to Dokku running on an Digital Ocean droplet. In this post I share how you can do this as well.
+[Jeff Lindsay](http://progrium.com/) created [Dokku](https://github.com/progrium/dokku), the smallest PaaS implementation you've ever seen. It is powered by [Docker](http://docker.io) and written in less than 100 lines of Bash code. I wanted to play with ever since it was released. This weekend I finally did and successfully deployed my application to Dokku running on an Digital Ocean droplet. In this post I share how you can do this as well. Of course I used to [wercker](http://wercker.com) to automate everything.
 
 ## Prerequisites
 
