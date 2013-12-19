@@ -59,7 +59,7 @@ build:
         to: pj@born2code.net
         host: smtp.gmail.com
         username: $MAIL_USER
-        password: $MAILPASS
+        password: $MAIL_PASS
     
 deploy:
   steps:
@@ -79,4 +79,4 @@ deploy:
         to: pj@born2code.net
         host: smtp.gmail.com
         username: $MAIL_USER
-        password: $MAILPASS
+        password: $MAIL_PASS
