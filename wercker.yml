@@ -73,6 +73,7 @@ deploy:
         code: source post-deploy-tests.sh
         
   after-steps:
+    - pjvds/git-tag
     - pjvds/email-notify:
         from: alerts@wercker.com
         to: pj@born2code.net
