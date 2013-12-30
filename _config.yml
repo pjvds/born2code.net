@@ -2,7 +2,7 @@ safe: false
 title: born2code.net
 description: Yet Another Programming Blog
 url: http://born2code.net
-markdown: rdiscount
+markdown: redcarpet
 rdiscount:
   extensions: [smart]
 permalink: /blog/:year/:month/:day/:title
