@@ -74,9 +74,3 @@ deploy:
         
   after-steps:
     - pjvds/git-tag
-    - pjvds/email-notify:
-        from: alerts@wercker.com
-        to: pj@born2code.net
-        host: smtp.gmail.com
-        username: $MAIL_USER
-        password: $MAIL_PASS
