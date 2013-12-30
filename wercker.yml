@@ -52,13 +52,6 @@ build:
           User-agent: *
           Allow: /
           Sitemap: http://born2code.net/sitemap.xml
-  after-steps:
-    - pjvds/email-notify:
-        from: alerts@wercker.com
-        to: pj@born2code.net
-        host: smtp.gmail.com
-        username: $MAIL_USER
-        password: $MAIL_PASS
     
 deploy:
   steps:
