@@ -64,3 +64,5 @@ deploy:
     - script:
         name: Execute post deploy tests
         code: source post-deploy-tests.sh
+  after-steps:
+    - pjvds/git-tag:
