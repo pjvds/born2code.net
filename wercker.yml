@@ -52,6 +52,11 @@ build:
           User-agent: *
           Allow: /
           Sitemap: http://born2code.net/sitemap.xml
+
+    # The git-tag steps needs the repository
+    - script:
+        name: Copy .git repository
+        code: cp $WERCKER_ROOT/.git $WERCKER_OUTPUT_DIR -r
     
 deploy:
   steps:
