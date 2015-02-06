@@ -1,13 +1,6 @@
-Global Structure
-----------------
+# A User Service is a Smell
 
--	A Micro Service tries to do one thing, and one thing well
--	We have 30+ but none of them is called Member or User
--	Modeling a User
--	Where is our user (it is EVERYWHERE)
--	Conclussion: the user is a view, it does not exist as a single entity and all parts are spread over all services
-
-The domain of Happy Pancake is all about users and user interaction. Maybe this is why people act surprised when I show them our Micro Services design that holds over 30 services. When they cannot find a single service named User or Member they start to question.
+The domain of Happy Pancake is all about users and user interactions. Maybe this is why people act surprised when I show them our Micro Services design that holds over 30 services. When they cannot find a single service named User or Member they start to question.
 
 > You do not have a service for the User?
 
@@ -17,11 +10,18 @@ This is the moment I tell them having a User service is a smell of bad design an
 
 A Micro Service can be described by the following characteristics:
 
-* Does one thing and does it well
-* Is small in size
-* Collaborates with other services
-* Has no value on it own
+* Does one thing
+* Does it well
+* Is small sized
+* Has little value on it own
+* Adds value by collaboration
 
+Designing these services is far from easy. It took us almost a year of design iterations to get at a stable state. Before that new insights could cause major redesign of certain parts. The hard part is first truly understanding the behavior and goals in your domain and then finding the correct boundries for the services. You want to break the problem down into correct pieces that have the least amount of coupling and the maximum amount of cohesien.
+
+
+How should could a User service look like? First I thought about the 
+
+![](../assets/posts/user-service-is-a-smell/user_service_start.png)
 
 
 Our domain is so user centric that properties of the user are literally everywhere. When you are in chat an conversation we show the one you are chatting with in form of nickname, age and a portrait picture. The profile page also shows this information in addition to other things like the city of the user, a presentation text and pictures. Not all properties are always visible. An example of this the hash of the users password. We never display that information anywhere, but use it during the login procedure. Another example is the email address of a user which is never displayed but used to send notify or contact the user.
