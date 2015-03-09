@@ -5,35 +5,6 @@ title: "what I learned from tuning 35 lines of code"
 
 The last few weeks I have spending a good part of my freetime on optimizing roughtly 35 lines of code. The result of this effort is a 110x increase in performance and in this post I want to summarize my journey.
 
-# Starting point
-
-{% highlight go %}
-func Format(entry tidy.Entry) ([]byte, error) {
-    buffer := make([]byte, 0)
- 
-    term := terminal.TerminalWriter{buffer}
-    color := colors[entry.Level]
- 
-    term.Color(color).Print(entry.Timestamp.Format("15:04:05"))
-    term.Print(entry.Level.FixedString())
-    term.Print(" [").Print(entry.Module).Print("] ").Reset()
-    term.Print(" ").Print(entry.Message)
- 
-    if len(entry.Fields) > 0 {
-        term.Print("\t")
-        for key, value := range entry.Fields {
-            term.Color(color).Print(" ").Print(key).Print("=").Reset()
-            term.Print(value)
-        }
-    }
- 
-    term.Print("\n")
- 
-    _, err := buffer.WriteTo(writer)
-    return err
-}
-```
-
 # final code
 
 {% highlight go %}
