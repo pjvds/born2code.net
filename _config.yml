@@ -6,7 +6,7 @@ markdown: redcarpet
 rdiscount:
   extensions: [smart]
 permalink: /blog/:year/:month/:day/:title
-pygments: true
+highlighter: pygments
 exclude: ["_config.json", "README.md", "scss", "post-deploy-tests.sh", "Rakefile", "Gemfile", "Gemfile.lock", "wercker.json"]
 paginate: 3
 content_assets_base: /assets/posts/
